@@ -13,4 +13,6 @@ app.use(
 // app.get('/', (req, res) => {
 //   res.sendFile('index.html', { root: __dirname + '/public' });
 // });
-app.listen(3000);
+var port = process.env.PORT || 3000;
+
+app.listen(port);
