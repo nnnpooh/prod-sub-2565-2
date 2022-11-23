@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx node-red -u ./local -p 1880"
+    "start": "npx node-red -u ./local -p 1881"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,125 @@
+[
+    {
+        "id": "cf2f4b787c98764e",
+        "type": "tab",
+        "label": "M1-3 HTTP GET",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ee090e02c6aa426e",
+        "type": "group",
+        "z": "cf2f4b787c98764e",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "c45cd3083ea411af",
+            "9665787069f334d6",
+            "9767df2216942965",
+            "74a9a933adc869e5"
+        ],
+        "x": 34,
+        "y": 59,
+        "w": 712,
+        "h": 182
+    },
+    {
+        "id": "c45cd3083ea411af",
+        "type": "inject",
+        "z": "cf2f4b787c98764e",
+        "g": "ee090e02c6aa426e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "9665787069f334d6"
+            ]
+        ]
+    },
+    {
+        "id": "9665787069f334d6",
+        "type": "http request",
+        "z": "cf2f4b787c98764e",
+        "g": "ee090e02c6aa426e",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://cmu.ac.th",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "9767df2216942965",
+                "74a9a933adc869e5"
+            ]
+        ]
+    },
+    {
+        "id": "9767df2216942965",
+        "type": "debug",
+        "z": "cf2f4b787c98764e",
+        "g": "ee090e02c6aa426e",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "74a9a933adc869e5",
+        "type": "file",
+        "z": "cf2f4b787c98764e",
+        "g": "ee090e02c6aa426e",
+        "name": "",
+        "filename": "index.html",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 650,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    }
+]

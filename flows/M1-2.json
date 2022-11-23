@@ -1,0 +1,186 @@
+[
+    {
+        "id": "cb7c64a4b929d30c",
+        "type": "group",
+        "z": "3660f5718b8fd1c3",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "2b7d7998bde3f2d2",
+            "4f55d205322321c6",
+            "db5655e85fbfc110",
+            "53d72b2e1ded77ad",
+            "b715c14f26b6319c",
+            "64ccac76a7de2a52"
+        ],
+        "x": 54,
+        "y": 359,
+        "w": 1112,
+        "h": 162
+    },
+    {
+        "id": "2b7d7998bde3f2d2",
+        "type": "inject",
+        "z": "3660f5718b8fd1c3",
+        "d": true,
+        "g": "cb7c64a4b929d30c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 440,
+        "wires": [
+            [
+                "4f55d205322321c6"
+            ]
+        ]
+    },
+    {
+        "id": "4f55d205322321c6",
+        "type": "function",
+        "z": "3660f5718b8fd1c3",
+        "g": "cb7c64a4b929d30c",
+        "name": "function 2",
+        "func": "msg.payload = Math.random()\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 440,
+        "wires": [
+            [
+                "53d72b2e1ded77ad"
+            ]
+        ]
+    },
+    {
+        "id": "db5655e85fbfc110",
+        "type": "debug",
+        "z": "3660f5718b8fd1c3",
+        "g": "cb7c64a4b929d30c",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "53d72b2e1ded77ad",
+        "type": "switch",
+        "z": "3660f5718b8fd1c3",
+        "g": "cb7c64a4b929d30c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0.5",
+                "vt": "str"
+            },
+            {
+                "t": "lte",
+                "v": "0.5",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 590,
+        "y": 440,
+        "wires": [
+            [
+                "b715c14f26b6319c"
+            ],
+            [
+                "64ccac76a7de2a52"
+            ]
+        ]
+    },
+    {
+        "id": "b715c14f26b6319c",
+        "type": "change",
+        "z": "3660f5718b8fd1c3",
+        "g": "cb7c64a4b929d30c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "This is a high value.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 400,
+        "wires": [
+            [
+                "db5655e85fbfc110"
+            ]
+        ]
+    },
+    {
+        "id": "64ccac76a7de2a52",
+        "type": "change",
+        "z": "3660f5718b8fd1c3",
+        "g": "cb7c64a4b929d30c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "This is a low value.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 480,
+        "wires": [
+            [
+                "db5655e85fbfc110"
+            ]
+        ]
+    }
+]
