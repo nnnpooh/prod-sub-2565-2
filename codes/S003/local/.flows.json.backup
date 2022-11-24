@@ -1,0 +1,162 @@
+[
+    {
+        "id": "f8333e725806023d",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ef931151ec9171c9",
+        "type": "inject",
+        "z": "f8333e725806023d",
+        "name": "Repeat",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "This is a topic",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "d20c8fc920b94cdc"
+            ]
+        ]
+    },
+    {
+        "id": "0945084db5a867e3",
+        "type": "debug",
+        "z": "f8333e725806023d",
+        "name": "Payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d20c8fc920b94cdc",
+        "type": "function",
+        "z": "f8333e725806023d",
+        "name": "function 1",
+        "func": "// msg.payload = '555555555'\n// msg.topic = 6666666\n\n// const ts = msg.payload\n// const date = new Date(ts)\n// msg.payload = date.toDateString()\n\nmsg.payload = Math.random()\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "a2e02062e8b18a03"
+            ]
+        ]
+    },
+    {
+        "id": "a2e02062e8b18a03",
+        "type": "switch",
+        "z": "f8333e725806023d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0.5",
+                "vt": "str"
+            },
+            {
+                "t": "lte",
+                "v": "0.5",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 120,
+        "wires": [
+            [
+                "c7eff655ceb14036"
+            ],
+            [
+                "943ff294ac440bb3"
+            ]
+        ]
+    },
+    {
+        "id": "c7eff655ceb14036",
+        "type": "change",
+        "z": "f8333e725806023d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "High Value",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 60,
+        "wires": [
+            [
+                "0945084db5a867e3"
+            ]
+        ]
+    },
+    {
+        "id": "943ff294ac440bb3",
+        "type": "change",
+        "z": "f8333e725806023d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Low Value",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 160,
+        "wires": [
+            [
+                "0945084db5a867e3"
+            ]
+        ]
+    }
+]
