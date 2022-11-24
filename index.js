@@ -10,6 +10,7 @@ app.use(express.static("public"));
 
 var lecturePath = path.join(__dirname, "lectures", "src");
 var flowPath = path.join(__dirname, "flows");
+var resourcePath = path.join(__dirname, "resources");
 app.use(
   "/lectures",
   express.static(lecturePath),
@@ -20,6 +21,12 @@ app.use(
   "/flows",
   express.static(flowPath),
   serveIndex(flowPath, { icons: true, stylesheet: "./styles/custom.css" })
+);
+
+app.use(
+  "/resources",
+  express.static(resourcePath),
+  serveIndex(resourcePath, { icons: true, stylesheet: "./styles/custom.css" })
 );
 
 app.get("/", (req, res) => {
