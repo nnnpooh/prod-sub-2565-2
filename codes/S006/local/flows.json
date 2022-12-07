@@ -1,0 +1,273 @@
+[
+    {
+        "id": "13b35fd491fcd8b2",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "17931b4d4966c557",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fefd3f96462f3f06",
+        "type": "inject",
+        "z": "13b35fd491fcd8b2",
+        "name": "Yes",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "extra",
+                "v": "5555",
+                "vt": "num"
+            },
+            {
+                "p": "bigC",
+                "v": "6666",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "This is a topic.",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "9d14d1540d6979b6",
+                "8862cb2018ba5f26"
+            ]
+        ]
+    },
+    {
+        "id": "9d14d1540d6979b6",
+        "type": "debug",
+        "z": "13b35fd491fcd8b2",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "extra",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8862cb2018ba5f26",
+        "type": "debug",
+        "z": "13b35fd491fcd8b2",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "bigC",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "470f9c1c91e26ddf",
+        "type": "inject",
+        "z": "13b35fd491fcd8b2",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 360,
+        "wires": [
+            [
+                "d01a3c91f930fa40"
+            ]
+        ]
+    },
+    {
+        "id": "d01a3c91f930fa40",
+        "type": "function",
+        "z": "13b35fd491fcd8b2",
+        "name": "function 1",
+        "func": "\n// msg.payload = '555555'\n\n// const ts = msg.payload\n// const date = new Date(ts)\n// msg.payload = date.toDateString()\n\nmsg.payload = Math.random()\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "ae4883fe0fe1ae80"
+            ]
+        ]
+    },
+    {
+        "id": "1d0e2a7a19737114",
+        "type": "debug",
+        "z": "13b35fd491fcd8b2",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "559aac46818b76a8",
+        "type": "inject",
+        "z": "13b35fd491fcd8b2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 440,
+        "wires": [
+            [
+                "d01a3c91f930fa40"
+            ]
+        ]
+    },
+    {
+        "id": "ae4883fe0fe1ae80",
+        "type": "switch",
+        "z": "13b35fd491fcd8b2",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0.5",
+                "vt": "str"
+            },
+            {
+                "t": "lte",
+                "v": "0.5",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 360,
+        "wires": [
+            [
+                "02431c31d2b34d08"
+            ],
+            [
+                "83ba85ba4a03f4a6"
+            ]
+        ]
+    },
+    {
+        "id": "02431c31d2b34d08",
+        "type": "change",
+        "z": "13b35fd491fcd8b2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Too high!!!!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 300,
+        "wires": [
+            [
+                "1d0e2a7a19737114"
+            ]
+        ]
+    },
+    {
+        "id": "83ba85ba4a03f4a6",
+        "type": "change",
+        "z": "13b35fd491fcd8b2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Too Low!!!!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 400,
+        "wires": [
+            [
+                "1d0e2a7a19737114"
+            ]
+        ]
+    }
+]
