@@ -24,6 +24,38 @@
         "env": []
     },
     {
+        "id": "360e94ece4fe56a9",
+        "type": "tab",
+        "label": "M 2-1 Server POST",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fa8263e490d88d59",
+        "type": "tab",
+        "label": "Attendance",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "20220b7d1c75cd26",
+        "type": "tab",
+        "label": "M2-2 Line Notify",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "992e1e63d0d24254",
+        "type": "tab",
+        "label": "M2-2 Extra",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "edb79df4fdc2edd1",
         "type": "group",
         "z": "3660f5718b8fd1c3",
@@ -145,6 +177,112 @@
         "y": 379,
         "w": 632,
         "h": 342
+    },
+    {
+        "id": "9e71dda4f602f907",
+        "type": "group",
+        "z": "360e94ece4fe56a9",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "b0f5041a8300453b",
+            "2df487027fd68320",
+            "140392d7dcb92019",
+            "407f7ff0db36cb80",
+            "f4f1a8977f0267cb",
+            "3cacd8cc84c25d0d",
+            "b60c655ae305692f",
+            "2ab4bca595ab1009"
+        ],
+        "x": 34,
+        "y": 39,
+        "w": 732,
+        "h": 302
+    },
+    {
+        "id": "a7d9c5d3e9751545",
+        "type": "group",
+        "z": "360e94ece4fe56a9",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "be1facca84f1a262",
+            "2075593d277b8894",
+            "fc6dc92850034d6c",
+            "82066d4d95eac850",
+            "ae39f6c7a5a69714",
+            "1073004a64c0287f",
+            "c5a434c9a713e461",
+            "f9335d1744bf3b62"
+        ],
+        "x": 34,
+        "y": 399,
+        "w": 752,
+        "h": 282
+    },
+    {
+        "id": "2e3bf437c03026b1",
+        "type": "group",
+        "z": "992e1e63d0d24254",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "c70917b1a8af07d1",
+            "7d2dd3cba4182c26",
+            "25b2d9141024be28",
+            "0147928a471ca56e",
+            "c4600f4bb6c364d4",
+            "ee4aebe91fdd8517",
+            "07ee5c911c307af6"
+        ],
+        "x": 54,
+        "y": 79,
+        "w": 872,
+        "h": 222
+    },
+    {
+        "id": "8a7f6f4e10f024be",
+        "type": "group",
+        "z": "992e1e63d0d24254",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "da6edf6354cd88fa",
+            "4f307aee73a1cfbb",
+            "8bc51a58dc96e1bd"
+        ],
+        "x": 54,
+        "y": 359,
+        "w": 452,
+        "h": 162
     },
     {
         "id": "88aa42bd0e3f441d",
@@ -804,6 +942,712 @@
         "info": "",
         "x": 110,
         "y": 640,
+        "wires": []
+    },
+    {
+        "id": "b0f5041a8300453b",
+        "type": "http in",
+        "z": "360e94ece4fe56a9",
+        "g": "9e71dda4f602f907",
+        "name": "Post1",
+        "url": "post1",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "407f7ff0db36cb80"
+            ]
+        ]
+    },
+    {
+        "id": "2df487027fd68320",
+        "type": "http response",
+        "z": "360e94ece4fe56a9",
+        "g": "9e71dda4f602f907",
+        "name": "Reply",
+        "statusCode": "",
+        "headers": {},
+        "x": 650,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "140392d7dcb92019",
+        "type": "debug",
+        "z": "360e94ece4fe56a9",
+        "g": "9e71dda4f602f907",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "407f7ff0db36cb80",
+        "type": "template",
+        "z": "360e94ece4fe56a9",
+        "g": "9e71dda4f602f907",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "I got your message: {{payload}} !",
+        "output": "str",
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "2df487027fd68320"
+            ]
+        ]
+    },
+    {
+        "id": "f4f1a8977f0267cb",
+        "type": "http request",
+        "z": "360e94ece4fe56a9",
+        "g": "9e71dda4f602f907",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "140392d7dcb92019"
+            ]
+        ]
+    },
+    {
+        "id": "3cacd8cc84c25d0d",
+        "type": "inject",
+        "z": "360e94ece4fe56a9",
+        "g": "9e71dda4f602f907",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "url",
+                "v": "http://localhost:1880/post1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "I love you.",
+        "payloadType": "str",
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "f4f1a8977f0267cb"
+            ]
+        ]
+    },
+    {
+        "id": "be1facca84f1a262",
+        "type": "http in",
+        "z": "360e94ece4fe56a9",
+        "g": "a7d9c5d3e9751545",
+        "name": "Post2",
+        "url": "post2",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 500,
+        "wires": [
+            [
+                "fc6dc92850034d6c"
+            ]
+        ]
+    },
+    {
+        "id": "2075593d277b8894",
+        "type": "http response",
+        "z": "360e94ece4fe56a9",
+        "g": "a7d9c5d3e9751545",
+        "name": "Reply",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "fc6dc92850034d6c",
+        "type": "function",
+        "z": "360e94ece4fe56a9",
+        "g": "a7d9c5d3e9751545",
+        "name": "",
+        "func": "const message = msg.payload\nconst date = new Date()\nconst time = date.toLocaleTimeString()\n\nmsg.payload = `I got your message \"${message}\" at ${time} !`\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "2075593d277b8894"
+            ]
+        ]
+    },
+    {
+        "id": "82066d4d95eac850",
+        "type": "debug",
+        "z": "360e94ece4fe56a9",
+        "g": "a7d9c5d3e9751545",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "ae39f6c7a5a69714",
+        "type": "http request",
+        "z": "360e94ece4fe56a9",
+        "g": "a7d9c5d3e9751545",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 390,
+        "y": 640,
+        "wires": [
+            [
+                "82066d4d95eac850"
+            ]
+        ]
+    },
+    {
+        "id": "1073004a64c0287f",
+        "type": "inject",
+        "z": "360e94ece4fe56a9",
+        "g": "a7d9c5d3e9751545",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "url",
+                "v": "http://localhost:1880/post2",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "I love you.",
+        "payloadType": "str",
+        "x": 140,
+        "y": 640,
+        "wires": [
+            [
+                "ae39f6c7a5a69714"
+            ]
+        ]
+    },
+    {
+        "id": "b60c655ae305692f",
+        "type": "comment",
+        "z": "360e94ece4fe56a9",
+        "g": "9e71dda4f602f907",
+        "name": "HTTP server /post1",
+        "info": "",
+        "x": 150,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2ab4bca595ab1009",
+        "type": "comment",
+        "z": "360e94ece4fe56a9",
+        "g": "9e71dda4f602f907",
+        "name": "Post request",
+        "info": "",
+        "x": 130,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c5a434c9a713e461",
+        "type": "comment",
+        "z": "360e94ece4fe56a9",
+        "g": "a7d9c5d3e9751545",
+        "name": "HTTP server /post2",
+        "info": "",
+        "x": 150,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "f9335d1744bf3b62",
+        "type": "comment",
+        "z": "360e94ece4fe56a9",
+        "g": "a7d9c5d3e9751545",
+        "name": "Post Request",
+        "info": "",
+        "x": 130,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "203463a85e187411",
+        "type": "inject",
+        "z": "fa8263e490d88d59",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "url",
+                "v": "https://materials-line-oa-production.up.railway.app/prodsup",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"cmu_id\":\"630610294\",\"code\":\"599b\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "d41bec8c6eb4ce0f"
+            ]
+        ]
+    },
+    {
+        "id": "d41bec8c6eb4ce0f",
+        "type": "http request",
+        "z": "fa8263e490d88d59",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 350,
+        "y": 160,
+        "wires": [
+            [
+                "6c05880f2542a58d"
+            ]
+        ]
+    },
+    {
+        "id": "6c05880f2542a58d",
+        "type": "debug",
+        "z": "fa8263e490d88d59",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "25b11551a7383191",
+        "type": "comment",
+        "z": "fa8263e490d88d59",
+        "name": "Attendance check",
+        "info": "",
+        "x": 130,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f2f6c4b87bb5b523",
+        "type": "comment",
+        "z": "20220b7d1c75cd26",
+        "name": "Line Notify",
+        "info": "",
+        "x": 160,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "a30b2e3f218bf739",
+        "type": "inject",
+        "z": "20220b7d1c75cd26",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "headers",
+                "v": "{\"Content-Type\":\"application/x-www-form-urlencoded\",\"Authorization\":\"Bearer <<YOUR LINE TOKEN>>\"}",
+                "vt": "json"
+            },
+            {
+                "p": "url",
+                "v": "https://notify-api.line.me/api/notify",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"message\":\"hello\"}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "f864faefd2856870"
+            ]
+        ]
+    },
+    {
+        "id": "f864faefd2856870",
+        "type": "http request",
+        "z": "20220b7d1c75cd26",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 450,
+        "y": 140,
+        "wires": [
+            [
+                "4c6feb3058b1e2ad"
+            ]
+        ]
+    },
+    {
+        "id": "4c6feb3058b1e2ad",
+        "type": "debug",
+        "z": "20220b7d1c75cd26",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c70917b1a8af07d1",
+        "type": "comment",
+        "z": "992e1e63d0d24254",
+        "g": "2e3bf437c03026b1",
+        "name": "Line Notify Server",
+        "info": "",
+        "x": 170,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "7d2dd3cba4182c26",
+        "type": "inject",
+        "z": "992e1e63d0d24254",
+        "g": "2e3bf437c03026b1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "headers",
+                "v": "{\"Content-Type\":\"application/x-www-form-urlencoded\",\"Authorization\":\"Bearer <<YOUR LINE TOKEN>>\"}",
+                "vt": "json"
+            },
+            {
+                "p": "url",
+                "v": "https://notify-api.line.me/api/notify",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"message\":\"hello\"}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "25b2d9141024be28"
+            ]
+        ]
+    },
+    {
+        "id": "25b2d9141024be28",
+        "type": "http request",
+        "z": "992e1e63d0d24254",
+        "g": "2e3bf437c03026b1",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 550,
+        "y": 180,
+        "wires": [
+            [
+                "0147928a471ca56e",
+                "07ee5c911c307af6"
+            ]
+        ]
+    },
+    {
+        "id": "0147928a471ca56e",
+        "type": "debug",
+        "z": "992e1e63d0d24254",
+        "g": "2e3bf437c03026b1",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c4600f4bb6c364d4",
+        "type": "http in",
+        "z": "992e1e63d0d24254",
+        "g": "2e3bf437c03026b1",
+        "name": "",
+        "url": "/post3",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "ee4aebe91fdd8517"
+            ]
+        ]
+    },
+    {
+        "id": "da6edf6354cd88fa",
+        "type": "inject",
+        "z": "992e1e63d0d24254",
+        "g": "8a7f6f4e10f024be",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "url",
+                "v": "http://localhost:1881/post3",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Yesssss",
+        "payloadType": "str",
+        "x": 160,
+        "y": 480,
+        "wires": [
+            [
+                "4f307aee73a1cfbb"
+            ]
+        ]
+    },
+    {
+        "id": "4f307aee73a1cfbb",
+        "type": "http request",
+        "z": "992e1e63d0d24254",
+        "g": "8a7f6f4e10f024be",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 410,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ee4aebe91fdd8517",
+        "type": "change",
+        "z": "992e1e63d0d24254",
+        "g": "2e3bf437c03026b1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"message\":\"Heloooo\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "headers",
+                "pt": "msg",
+                "to": "{\"Content-Type\":\"application/x-www-form-urlencoded\",\"Authorization\":\"Bearer wJrSgqGVvxvfXoE5Ld2H17BWq4VIKDNiC6N6bYMtVOg\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "https://notify-api.line.me/api/notify",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "25b2d9141024be28"
+            ]
+        ]
+    },
+    {
+        "id": "07ee5c911c307af6",
+        "type": "http response",
+        "z": "992e1e63d0d24254",
+        "g": "2e3bf437c03026b1",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 810,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "8bc51a58dc96e1bd",
+        "type": "comment",
+        "z": "992e1e63d0d24254",
+        "g": "8a7f6f4e10f024be",
+        "name": "Line Notify Request",
+        "info": "",
+        "x": 170,
+        "y": 400,
         "wires": []
     }
 ]

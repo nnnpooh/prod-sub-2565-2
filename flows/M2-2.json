@@ -1,0 +1,99 @@
+[
+    {
+        "id": "20220b7d1c75cd26",
+        "type": "tab",
+        "label": "M2-2 Line Notify",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f2f6c4b87bb5b523",
+        "type": "comment",
+        "z": "20220b7d1c75cd26",
+        "name": "Line Notify",
+        "info": "",
+        "x": 160,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "a30b2e3f218bf739",
+        "type": "inject",
+        "z": "20220b7d1c75cd26",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "headers",
+                "v": "{\"Content-Type\":\"application/x-www-form-urlencoded\",\"Authorization\":\"Bearer <<YOUR LINE TOKEN>>\"}",
+                "vt": "json"
+            },
+            {
+                "p": "url",
+                "v": "https://notify-api.line.me/api/notify",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"message\":\"hello\"}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "f864faefd2856870"
+            ]
+        ]
+    },
+    {
+        "id": "f864faefd2856870",
+        "type": "http request",
+        "z": "20220b7d1c75cd26",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 450,
+        "y": 140,
+        "wires": [
+            [
+                "4c6feb3058b1e2ad"
+            ]
+        ]
+    },
+    {
+        "id": "4c6feb3058b1e2ad",
+        "type": "debug",
+        "z": "20220b7d1c75cd26",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 140,
+        "wires": []
+    }
+]
