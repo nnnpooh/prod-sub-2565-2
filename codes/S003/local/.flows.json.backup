@@ -8,9 +8,72 @@
         "env": []
     },
     {
+        "id": "d38e962e6ef4a91d",
+        "type": "tab",
+        "label": "POST Request",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5de4add42bdb9ed2",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2ca4a9ec79df2bd2",
+        "type": "group",
+        "z": "d38e962e6ef4a91d",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7029437baad92e26",
+            "eec88a09186d10dc",
+            "09216df2e54d4fa9"
+        ],
+        "x": 54,
+        "y": 59,
+        "w": 552,
+        "h": 82
+    },
+    {
+        "id": "17c361b70615de1c",
+        "type": "group",
+        "z": "d38e962e6ef4a91d",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "1067922fe4f44b63",
+            "d4ab64420d4bf37c",
+            "c8d98795e7dec0cb"
+        ],
+        "x": 14,
+        "y": 259,
+        "w": 592,
+        "h": 82
+    },
+    {
         "id": "ef931151ec9171c9",
         "type": "inject",
         "z": "f8333e725806023d",
+        "d": true,
         "name": "Repeat",
         "props": [
             {
@@ -49,8 +112,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 820,
-        "y": 80,
+        "x": 800,
+        "y": 120,
         "wires": []
     },
     {
@@ -98,15 +161,15 @@
         "y": 120,
         "wires": [
             [
-                "c7eff655ceb14036"
+                "eb32526d3cc9822a"
             ],
             [
-                "943ff294ac440bb3"
+                "8cf4eaaff371df55"
             ]
         ]
     },
     {
-        "id": "c7eff655ceb14036",
+        "id": "eb32526d3cc9822a",
         "type": "change",
         "z": "f8333e725806023d",
         "name": "",
@@ -115,7 +178,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "High Value",
+                "to": "Too high!!!!!!!!!!",
                 "tot": "str"
             }
         ],
@@ -133,7 +196,7 @@
         ]
     },
     {
-        "id": "943ff294ac440bb3",
+        "id": "8cf4eaaff371df55",
         "type": "change",
         "z": "f8333e725806023d",
         "name": "",
@@ -142,7 +205,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "Low Value",
+                "to": "Too low!!!!!!!!",
                 "tot": "str"
             }
         ],
@@ -151,12 +214,280 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 160,
+        "x": 600,
+        "y": 180,
         "wires": [
             [
                 "0945084db5a867e3"
             ]
         ]
+    },
+    {
+        "id": "7029437baad92e26",
+        "type": "http in",
+        "z": "d38e962e6ef4a91d",
+        "g": "2ca4a9ec79df2bd2",
+        "name": "Post1",
+        "url": "/post1",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "eec88a09186d10dc"
+            ]
+        ]
+    },
+    {
+        "id": "eec88a09186d10dc",
+        "type": "template",
+        "z": "d38e962e6ef4a91d",
+        "g": "2ca4a9ec79df2bd2",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "I got your message: {{payload}} !",
+        "output": "str",
+        "x": 340,
+        "y": 100,
+        "wires": [
+            [
+                "09216df2e54d4fa9"
+            ]
+        ]
+    },
+    {
+        "id": "09216df2e54d4fa9",
+        "type": "http response",
+        "z": "d38e962e6ef4a91d",
+        "g": "2ca4a9ec79df2bd2",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6924ab81bd62790a",
+        "type": "comment",
+        "z": "d38e962e6ef4a91d",
+        "name": "Server listening to POST request",
+        "info": "",
+        "x": 190,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "662fdea8037acae9",
+        "type": "comment",
+        "z": "d38e962e6ef4a91d",
+        "name": "Client sending post request",
+        "info": "",
+        "x": 170,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "1067922fe4f44b63",
+        "type": "inject",
+        "z": "d38e962e6ef4a91d",
+        "g": "17c361b70615de1c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "url",
+                "v": "http://localhost:1880/post1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "I love you.",
+        "payloadType": "str",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "d4ab64420d4bf37c"
+            ]
+        ]
+    },
+    {
+        "id": "d4ab64420d4bf37c",
+        "type": "http request",
+        "z": "d38e962e6ef4a91d",
+        "g": "17c361b70615de1c",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 310,
+        "y": 300,
+        "wires": [
+            [
+                "c8d98795e7dec0cb"
+            ]
+        ]
+    },
+    {
+        "id": "c8d98795e7dec0cb",
+        "type": "debug",
+        "z": "d38e962e6ef4a91d",
+        "g": "17c361b70615de1c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5f47407ad0e3de2d",
+        "type": "http in",
+        "z": "5de4add42bdb9ed2",
+        "name": "",
+        "url": "/post2",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "7efdc26844f4e20b"
+            ]
+        ]
+    },
+    {
+        "id": "7efdc26844f4e20b",
+        "type": "function",
+        "z": "5de4add42bdb9ed2",
+        "name": "function 2",
+        "func": "const message = msg.payload;\nconst date = new Date();\nconst time = date.toLocaleTimeString();\n\nmsg.payload = `I got your message \"${message}\" at ${time} !`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 80,
+        "wires": [
+            [
+                "d862af1804ff7316"
+            ]
+        ]
+    },
+    {
+        "id": "d862af1804ff7316",
+        "type": "http response",
+        "z": "5de4add42bdb9ed2",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 630,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "76fbbce1fa6d307e",
+        "type": "inject",
+        "z": "5de4add42bdb9ed2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "url",
+                "v": "http://localhost:1880/post2",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "I love you",
+        "payloadType": "str",
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [
+                "4864f5afbef2216f"
+            ]
+        ]
+    },
+    {
+        "id": "4864f5afbef2216f",
+        "type": "http request",
+        "z": "5de4add42bdb9ed2",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 390,
+        "y": 220,
+        "wires": [
+            [
+                "9c44e5545ae58be5"
+            ]
+        ]
+    },
+    {
+        "id": "9c44e5545ae58be5",
+        "type": "debug",
+        "z": "5de4add42bdb9ed2",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 220,
+        "wires": []
     }
 ]
