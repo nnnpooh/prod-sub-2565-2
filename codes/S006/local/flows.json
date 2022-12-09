@@ -8,9 +8,25 @@
         "env": []
     },
     {
-        "id": "17931b4d4966c557",
+        "id": "619d795751035fe7",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "POST Server",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8ee59773cfaed931",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3d1abe19d1ed7317",
+        "type": "tab",
+        "label": "Attendance",
         "disabled": false,
         "info": "",
         "env": []
@@ -269,5 +285,341 @@
                 "1d0e2a7a19737114"
             ]
         ]
+    },
+    {
+        "id": "8253e260673791cc",
+        "type": "comment",
+        "z": "619d795751035fe7",
+        "name": "Server listening to POST request",
+        "info": "",
+        "x": 210,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f0d1448c9ba422ac",
+        "type": "http in",
+        "z": "619d795751035fe7",
+        "name": "Post1",
+        "url": "/post1",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "21fba349e45c7bc7"
+            ]
+        ]
+    },
+    {
+        "id": "21fba349e45c7bc7",
+        "type": "template",
+        "z": "619d795751035fe7",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "I got your message: {{payload}} !",
+        "output": "str",
+        "x": 360,
+        "y": 160,
+        "wires": [
+            [
+                "7cd4c229af30ccf0"
+            ]
+        ]
+    },
+    {
+        "id": "7cd4c229af30ccf0",
+        "type": "http response",
+        "z": "619d795751035fe7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 590,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b98eac8c353b237a",
+        "type": "comment",
+        "z": "619d795751035fe7",
+        "name": "Sending POST request",
+        "info": "",
+        "x": 180,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1a544a7cd15b3ce0",
+        "type": "inject",
+        "z": "619d795751035fe7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "url",
+                "v": "http://127.0.0.1:1880/post1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "I love you too.",
+        "payloadType": "str",
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "949a94b4708ace2d"
+            ]
+        ]
+    },
+    {
+        "id": "949a94b4708ace2d",
+        "type": "http request",
+        "z": "619d795751035fe7",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 370,
+        "y": 340,
+        "wires": [
+            [
+                "b3de9f7c1a3e6de6"
+            ]
+        ]
+    },
+    {
+        "id": "b3de9f7c1a3e6de6",
+        "type": "debug",
+        "z": "619d795751035fe7",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "050c3913f539e227",
+        "type": "http in",
+        "z": "8ee59773cfaed931",
+        "name": "Post2",
+        "url": "/post2",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "95c2f4c0ccf26379"
+            ]
+        ]
+    },
+    {
+        "id": "95c2f4c0ccf26379",
+        "type": "function",
+        "z": "8ee59773cfaed931",
+        "name": "function 2",
+        "func": "const message = msg.payload;\nconst date = new Date();\nconst time = date.toLocaleTimeString();\n\nmsg.payload = `I got your message \"${message}\" at ${time} !`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "0a1b4df0992ed10c"
+            ]
+        ]
+    },
+    {
+        "id": "0a1b4df0992ed10c",
+        "type": "http response",
+        "z": "8ee59773cfaed931",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 630,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "37db65269d88b77b",
+        "type": "inject",
+        "z": "8ee59773cfaed931",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "url",
+                "v": "http://127.0.0.1:1880/post2",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "I love you.",
+        "payloadType": "str",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "9d0782d8b00b7dc7"
+            ]
+        ]
+    },
+    {
+        "id": "9d0782d8b00b7dc7",
+        "type": "http request",
+        "z": "8ee59773cfaed931",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "4bca11dd808047b1"
+            ]
+        ]
+    },
+    {
+        "id": "4bca11dd808047b1",
+        "type": "debug",
+        "z": "8ee59773cfaed931",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "083a180e07db8681",
+        "type": "inject",
+        "z": "3d1abe19d1ed7317",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "url",
+                "v": "https://materials-line-oa-production.up.railway.app/prodsup",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"cmu_id\":\"6403434234\",\"code\":\"fedd\"}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "02260926862a4f63"
+            ]
+        ]
+    },
+    {
+        "id": "02260926862a4f63",
+        "type": "http request",
+        "z": "3d1abe19d1ed7317",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 370,
+        "y": 100,
+        "wires": [
+            [
+                "5075ba1b9567473c"
+            ]
+        ]
+    },
+    {
+        "id": "5075ba1b9567473c",
+        "type": "debug",
+        "z": "3d1abe19d1ed7317",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 180,
+        "wires": []
     }
 ]
