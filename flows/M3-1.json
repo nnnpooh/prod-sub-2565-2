@@ -1,0 +1,142 @@
+[
+    {
+        "id": "74862c9e2dd68507",
+        "type": "tab",
+        "label": "M3-1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "50203c0b13d0479e",
+        "type": "comment",
+        "z": "74862c9e2dd68507",
+        "name": "Subscript to a topic",
+        "info": "",
+        "x": 130,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e20d8d801bc6d099",
+        "type": "mqtt in",
+        "z": "74862c9e2dd68507",
+        "name": "",
+        "topic": "test/main",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "d5ec1d31bf493bfe",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "1d74e6d85e67b39e"
+            ]
+        ]
+    },
+    {
+        "id": "8866b98260f2a58c",
+        "type": "mqtt out",
+        "z": "74862c9e2dd68507",
+        "name": "",
+        "topic": "test/main",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d5ec1d31bf493bfe",
+        "x": 340,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6d651dcd5c5e3671",
+        "type": "inject",
+        "z": "74862c9e2dd68507",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "8866b98260f2a58c"
+            ]
+        ]
+    },
+    {
+        "id": "1d74e6d85e67b39e",
+        "type": "debug",
+        "z": "74862c9e2dd68507",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f3bc2513eb372042",
+        "type": "comment",
+        "z": "74862c9e2dd68507",
+        "name": "Publish to a topic",
+        "info": "",
+        "x": 120,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d5ec1d31bf493bfe",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "iecmu.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
