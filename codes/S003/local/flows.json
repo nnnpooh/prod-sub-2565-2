@@ -32,6 +32,14 @@
         "env": []
     },
     {
+        "id": "a25c00a714d46f2c",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "2ca4a9ec79df2bd2",
         "type": "group",
         "z": "d38e962e6ef4a91d",
@@ -50,9 +58,7 @@
             "09216df2e54d4fa9"
         ],
         "x": 54,
-        "y": 59,
-        "w": 552,
-        "h": 82
+        "y": 59
     },
     {
         "id": "17c361b70615de1c",
@@ -73,9 +79,34 @@
             "c8d98795e7dec0cb"
         ],
         "x": 14,
-        "y": 259,
-        "w": 592,
-        "h": 82
+        "y": 259
+    },
+    {
+        "id": "09ef4f401206f146",
+        "type": "mqtt-broker",
+        "name": "IECMU",
+        "broker": "iecmu.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
         "id": "ef931151ec9171c9",
@@ -571,5 +602,99 @@
         "x": 620,
         "y": 100,
         "wires": []
+    },
+    {
+        "id": "417721e0e7894b25",
+        "type": "comment",
+        "z": "a25c00a714d46f2c",
+        "name": "Subscript to topic",
+        "info": "",
+        "x": 140,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "bf4f5802f4c2d5c3",
+        "type": "mqtt in",
+        "z": "a25c00a714d46f2c",
+        "name": "",
+        "topic": "test/main",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "09ef4f401206f146",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "6ca1c20c81ec32e0"
+            ]
+        ]
+    },
+    {
+        "id": "6ca1c20c81ec32e0",
+        "type": "debug",
+        "z": "a25c00a714d46f2c",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a7dca0ea54057c59",
+        "type": "mqtt out",
+        "z": "a25c00a714d46f2c",
+        "name": "",
+        "topic": "test/main",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "09ef4f401206f146",
+        "x": 420,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "42a27d4a632d9075",
+        "type": "inject",
+        "z": "a25c00a714d46f2c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hi form node-red",
+        "payloadType": "str",
+        "x": 180,
+        "y": 260,
+        "wires": [
+            [
+                "a7dca0ea54057c59"
+            ]
+        ]
     }
 ]
