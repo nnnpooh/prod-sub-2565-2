@@ -32,6 +32,41 @@
         "env": []
     },
     {
+        "id": "c5c162363a4793b5",
+        "type": "tab",
+        "label": "MQTT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "aa990289290c9844",
+        "type": "mqtt-broker",
+        "name": "อะไรก็ได้",
+        "broker": "iecmu.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
         "id": "fefd3f96462f3f06",
         "type": "inject",
         "z": "13b35fd491fcd8b2",
@@ -598,7 +633,7 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 410,
+        "x": 370,
         "y": 100,
         "wires": [
             [
@@ -621,5 +656,89 @@
         "x": 440,
         "y": 180,
         "wires": []
+    },
+    {
+        "id": "59f3234bdf9b85a5",
+        "type": "mqtt in",
+        "z": "c5c162363a4793b5",
+        "name": "",
+        "topic": "test/main",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "aa990289290c9844",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "71ded265b7c6195b"
+            ]
+        ]
+    },
+    {
+        "id": "71ded265b7c6195b",
+        "type": "debug",
+        "z": "c5c162363a4793b5",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "0cab570444bc8c05",
+        "type": "mqtt out",
+        "z": "c5c162363a4793b5",
+        "name": "",
+        "topic": "test/main",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aa990289290c9844",
+        "x": 520,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "132b59329c69ce26",
+        "type": "inject",
+        "z": "c5c162363a4793b5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 220,
+        "wires": [
+            [
+                "0cab570444bc8c05"
+            ]
+        ]
     }
 ]
