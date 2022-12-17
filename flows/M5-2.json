@@ -1,0 +1,218 @@
+[
+    {
+        "id": "42323f5cd5a1a54b",
+        "type": "tab",
+        "label": "M5-2: Control",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f32c4770eaef2cb7",
+        "type": "ui_button",
+        "z": "42323f5cd5a1a54b",
+        "name": "",
+        "group": "028fd3e511a2e49b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "",
+        "payload": "start",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "9208b0fdcc8341f6"
+            ]
+        ]
+    },
+    {
+        "id": "9208b0fdcc8341f6",
+        "type": "mqtt out",
+        "z": "42323f5cd5a1a54b",
+        "d": true,
+        "name": "",
+        "topic": "test/flashlight",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5d3245bfbfc17903",
+        "x": 450,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3d19f312112d01c4",
+        "type": "mqtt in",
+        "z": "42323f5cd5a1a54b",
+        "d": true,
+        "name": "",
+        "topic": "test/flashlight",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "5d3245bfbfc17903",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "8c08f9be6f9da7b2"
+            ]
+        ]
+    },
+    {
+        "id": "d90dedefa169d85c",
+        "type": "debug",
+        "z": "42323f5cd5a1a54b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8c08f9be6f9da7b2",
+        "type": "template",
+        "z": "42323f5cd5a1a54b",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "I will {{payload}} now !",
+        "output": "str",
+        "x": 320,
+        "y": 340,
+        "wires": [
+            [
+                "d90dedefa169d85c"
+            ]
+        ]
+    },
+    {
+        "id": "e406ee288738b18b",
+        "type": "ui_button",
+        "z": "42323f5cd5a1a54b",
+        "name": "",
+        "group": "028fd3e511a2e49b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "9208b0fdcc8341f6"
+            ]
+        ]
+    },
+    {
+        "id": "d5b1dfdefb79cf52",
+        "type": "comment",
+        "z": "42323f5cd5a1a54b",
+        "name": "Control buttons",
+        "info": "",
+        "x": 140,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "3cdb960af67f55e0",
+        "type": "comment",
+        "z": "42323f5cd5a1a54b",
+        "name": "Device receiving command",
+        "info": "",
+        "x": 170,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "dbba3fc7a3a306ad",
+        "type": "ui_spacer",
+        "z": "42323f5cd5a1a54b",
+        "name": "spacer",
+        "group": "028fd3e511a2e49b",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "028fd3e511a2e49b",
+        "type": "ui_group",
+        "name": "Test Control",
+        "tab": "77f04b51e37f9722",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5d3245bfbfc17903",
+        "type": "mqtt-broker",
+        "name": "ProdSup",
+        "broker": "35.240.248.118",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "77f04b51e37f9722",
+        "type": "ui_tab",
+        "name": "Home - Control",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]

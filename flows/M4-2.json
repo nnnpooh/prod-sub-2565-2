@@ -1,0 +1,121 @@
+[
+    {
+        "id": "dd2fedbc45d34aa1",
+        "type": "tab",
+        "label": "M4-2: Sensor Subscriber",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9d18a612c9dcf204",
+        "type": "mqtt in",
+        "z": "dd2fedbc45d34aa1",
+        "d": true,
+        "name": "",
+        "topic": "test/LSM6DSO",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "5d3245bfbfc17903",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "2849f7e23d58da2c"
+            ]
+        ]
+    },
+    {
+        "id": "0285cebada45688f",
+        "type": "debug",
+        "z": "dd2fedbc45d34aa1",
+        "d": true,
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "2849f7e23d58da2c",
+        "type": "json",
+        "z": "dd2fedbc45d34aa1",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 430,
+        "y": 120,
+        "wires": [
+            [
+                "140a86300913a6e4"
+            ]
+        ]
+    },
+    {
+        "id": "140a86300913a6e4",
+        "type": "function",
+        "z": "dd2fedbc45d34aa1",
+        "name": "",
+        "func": "const payloadJSON =  msg.payload\nconst values = payloadJSON['LSM6DSO Acceleration Sensor'].values\nconst norm = Math.sqrt( values[0]**2 + values[1]**2 + values[2]**2)\nmsg.payload = norm\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 120,
+        "wires": [
+            [
+                "0285cebada45688f"
+            ]
+        ]
+    },
+    {
+        "id": "694c830cfb564be2",
+        "type": "comment",
+        "z": "dd2fedbc45d34aa1",
+        "name": "Sensor Subscriber",
+        "info": "",
+        "x": 220,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "5d3245bfbfc17903",
+        "type": "mqtt-broker",
+        "name": "ProdSup",
+        "broker": "35.240.248.118",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]

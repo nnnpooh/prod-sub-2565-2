@@ -1,0 +1,179 @@
+[
+    {
+        "id": "ea83331cc935d51f",
+        "type": "tab",
+        "label": "M4-3: Fake Sensors",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e6f191eb8332a33b",
+        "type": "inject",
+        "z": "ea83331cc935d51f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "af0fd483d3f88a30"
+            ]
+        ]
+    },
+    {
+        "id": "af0fd483d3f88a30",
+        "type": "function",
+        "z": "ea83331cc935d51f",
+        "name": "",
+        "func": "msg.payload = Math.random()\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 120,
+        "wires": [
+            [
+                "1ef8a30b47d046da"
+            ]
+        ]
+    },
+    {
+        "id": "1ef8a30b47d046da",
+        "type": "mqtt out",
+        "z": "ea83331cc935d51f",
+        "d": true,
+        "name": "",
+        "topic": "test/fakesensor",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5d3245bfbfc17903",
+        "x": 540,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f91fa2d8c91e62bd",
+        "type": "mqtt in",
+        "z": "ea83331cc935d51f",
+        "d": true,
+        "name": "",
+        "topic": "test/fakesensor",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "5d3245bfbfc17903",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 260,
+        "wires": [
+            [
+                "23fb0bba32f153c0"
+            ]
+        ]
+    },
+    {
+        "id": "3c3cd6c53a5f41a0",
+        "type": "debug",
+        "z": "ea83331cc935d51f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "23fb0bba32f153c0",
+        "type": "function",
+        "z": "ea83331cc935d51f",
+        "name": "",
+        "func": "const payload = msg.payload;\nmsg.payload = parseFloat(payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "3c3cd6c53a5f41a0"
+            ]
+        ]
+    },
+    {
+        "id": "d15b42a64fc36e71",
+        "type": "comment",
+        "z": "ea83331cc935d51f",
+        "name": "Fake sensor",
+        "info": "",
+        "x": 90,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f121f7a5d2c319ad",
+        "type": "comment",
+        "z": "ea83331cc935d51f",
+        "name": "Fake-sensor subscriber",
+        "info": "",
+        "x": 120,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5d3245bfbfc17903",
+        "type": "mqtt-broker",
+        "name": "ProdSup",
+        "broker": "35.240.248.118",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]

@@ -1,0 +1,160 @@
+[
+    {
+        "id": "740aab15e2c10d31",
+        "type": "tab",
+        "label": "M5-1: Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "413552add17de23b",
+        "type": "inject",
+        "z": "740aab15e2c10d31",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "26c968d87cface70"
+            ]
+        ]
+    },
+    {
+        "id": "bab631aacafb4eef",
+        "type": "ui_chart",
+        "z": "740aab15e2c10d31",
+        "name": "",
+        "group": "f83404baf46e6560",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 580,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "26c968d87cface70",
+        "type": "function",
+        "z": "740aab15e2c10d31",
+        "name": "",
+        "func": "const timestamp = msg.payload\nconst period = 10\nmsg.payload = Math.sin(timestamp/1000*2*Math.PI/period)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "bab631aacafb4eef",
+                "706f72f5ba713358"
+            ]
+        ]
+    },
+    {
+        "id": "706f72f5ba713358",
+        "type": "ui_gauge",
+        "z": "740aab15e2c10d31",
+        "name": "",
+        "group": "f83404baf46e6560",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-1",
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 580,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b3ad01f18dd29bda",
+        "type": "comment",
+        "z": "740aab15e2c10d31",
+        "name": "Graph and gauge",
+        "info": "",
+        "x": 140,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f83404baf46e6560",
+        "type": "ui_group",
+        "name": "Test Reading",
+        "tab": "0bcace1c37b96e4e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0bcace1c37b96e4e",
+        "type": "ui_tab",
+        "name": "Home - Reading",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

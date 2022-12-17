@@ -1,0 +1,218 @@
+[
+    {
+        "id": "f2ec89c9e13ddd9c",
+        "type": "tab",
+        "label": "M4-1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e0aef0052bda6471",
+        "type": "inject",
+        "z": "f2ec89c9e13ddd9c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 120,
+        "wires": [
+            [
+                "58bb86341f0f3501"
+            ]
+        ]
+    },
+    {
+        "id": "58bb86341f0f3501",
+        "type": "exec",
+        "z": "f2ec89c9e13ddd9c",
+        "command": "termux-sensor -s LSM6DSO Acceleration Sensor",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 500,
+        "y": 120,
+        "wires": [
+            [
+                "276dc1b59b2da818",
+                "763e53c109b1b8e4"
+            ],
+            [
+                "276dc1b59b2da818"
+            ],
+            [
+                "276dc1b59b2da818"
+            ]
+        ]
+    },
+    {
+        "id": "276dc1b59b2da818",
+        "type": "debug",
+        "z": "f2ec89c9e13ddd9c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "5823a7d8fd99a617",
+        "type": "exec",
+        "z": "f2ec89c9e13ddd9c",
+        "command": "termux-sensor -c",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 450,
+        "y": 320,
+        "wires": [
+            [
+                "7781cf292a617351"
+            ],
+            [
+                "7781cf292a617351"
+            ],
+            [
+                "7781cf292a617351"
+            ]
+        ]
+    },
+    {
+        "id": "f3eaa68ab34bbfb1",
+        "type": "inject",
+        "z": "f2ec89c9e13ddd9c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 320,
+        "wires": [
+            [
+                "5823a7d8fd99a617"
+            ]
+        ]
+    },
+    {
+        "id": "763e53c109b1b8e4",
+        "type": "mqtt out",
+        "z": "f2ec89c9e13ddd9c",
+        "d": true,
+        "name": "",
+        "topic": "test/LSM6DSO",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b84b4529cbf82b63",
+        "x": 900,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7781cf292a617351",
+        "type": "debug",
+        "z": "f2ec89c9e13ddd9c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c6a560002a9bc19d",
+        "type": "comment",
+        "z": "f2ec89c9e13ddd9c",
+        "name": "Accelerometer",
+        "info": "",
+        "x": 200,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "58466b683f94cfa8",
+        "type": "comment",
+        "z": "f2ec89c9e13ddd9c",
+        "name": "Reset sensors",
+        "info": "",
+        "x": 190,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b84b4529cbf82b63",
+        "type": "mqtt-broker",
+        "name": "Prodsup",
+        "broker": "35.240.248.118",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
