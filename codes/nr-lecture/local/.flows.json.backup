@@ -64,6 +64,22 @@
         "env": []
     },
     {
+        "id": "685c9c72cffcba0b",
+        "type": "tab",
+        "label": "M6",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "737f034f204697d3",
+        "type": "tab",
+        "label": "M7",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "edb79df4fdc2edd1",
         "type": "group",
         "z": "3660f5718b8fd1c3",
@@ -306,6 +322,126 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "cda050e8c35da33e",
+        "type": "firebase admin",
+        "name": "Prodsup"
+    },
+    {
+        "id": "1d7942491b35b884",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "7d9e0ddb5c6b8dfb",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6adb718199fdcdb6",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "1d7942491b35b884",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "88aa42bd0e3f441d",
@@ -1719,7 +1855,7 @@
         "expiry": "",
         "broker": "d5ec1d31bf493bfe",
         "x": 340,
-        "y": 260,
+        "y": 300,
         "wires": []
     },
     {
@@ -1744,7 +1880,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "8866b98260f2a58c"
@@ -1760,11 +1896,382 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 320,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "f3bc2513eb372042",
+        "type": "comment",
+        "z": "74862c9e2dd68507",
+        "name": "Publish to a topic",
+        "info": "",
+        "x": 120,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f723b68f33cac68c",
+        "type": "Firestore out",
+        "z": "685c9c72cffcba0b",
+        "name": "Write",
+        "collection": "test",
+        "document": "",
+        "operation": "add",
+        "admin": "cda050e8c35da33e",
+        "eject": false,
+        "x": 610,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c4e618e2d6ca476b",
+        "type": "inject",
+        "z": "685c9c72cffcba0b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "770dddfb6ec85e71"
+            ]
+        ]
+    },
+    {
+        "id": "57b5d989d6f39779",
+        "type": "Firestore in",
+        "z": "685c9c72cffcba0b",
+        "name": "",
+        "collection": "test",
+        "group": false,
+        "document": "",
+        "realtime": true,
+        "query": [
+            {
+                "orderBy": {
+                    "field": "timestamp",
+                    "direction": "asc"
+                }
+            }
+        ],
+        "admin": "cda050e8c35da33e",
+        "snapHandler": "",
+        "eject": false,
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "7e23cce730a6b68f"
+            ]
+        ]
+    },
+    {
+        "id": "6d1bc3c2f65f1c17",
+        "type": "debug",
+        "z": "685c9c72cffcba0b",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "770dddfb6ec85e71",
+        "type": "function",
+        "z": "685c9c72cffcba0b",
+        "name": "function 3",
+        "func": "const timestamp = msg.payload\nmsg.payload = {\"value\": Math.random(), \"timestamp\":timestamp}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "f723b68f33cac68c"
+            ]
+        ]
+    },
+    {
+        "id": "7e23cce730a6b68f",
+        "type": "function",
+        "z": "685c9c72cffcba0b",
+        "name": "function 4",
+        "func": "let payload = msg.payload\nlet textOut = ''\n\nfor (const [key, value] of Object.entries(payload)) {\n    const date = new Date(value.timestamp)\n    const datestring = date.toLocaleDateString()\n    const timestring = date.toLocaleTimeString()\n    const reading = value.value.toFixed(2)\n    textOut += `${datestring} ${timestring}: ${reading} \\n`\n}\n\nmsg.payload = textOut;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "6d1bc3c2f65f1c17"
+            ]
+        ]
+    },
+    {
+        "id": "be4341acbb22733d",
+        "type": "change",
+        "z": "737f034f204697d3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "current",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 120,
+        "wires": [
+            [
+                "07e23e6845a0661b"
+            ]
+        ]
+    },
+    {
+        "id": "997e77e594d52d2c",
+        "type": "inject",
+        "z": "737f034f204697d3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "b1a701ca58807457"
+            ]
+        ]
+    },
+    {
+        "id": "b1a701ca58807457",
+        "type": "function",
+        "z": "737f034f204697d3",
+        "name": "function 5",
+        "func": "msg.payload = Math.random()\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "74bcce45a82c8a23",
+                "eb2cd3128f5ed150",
+                "dc67100cd8b6c492"
+            ]
+        ]
+    },
+    {
+        "id": "74bcce45a82c8a23",
+        "type": "switch",
+        "z": "737f034f204697d3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "current",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "be4341acbb22733d"
+            ]
+        ]
+    },
+    {
+        "id": "07e23e6845a0661b",
+        "type": "ui_text",
+        "z": "737f034f204697d3",
+        "group": "6adb718199fdcdb6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 730,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "dc67100cd8b6c492",
+        "type": "ui_chart",
+        "z": "737f034f204697d3",
+        "name": "",
+        "group": "6adb718199fdcdb6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb2cd3128f5ed150",
+        "type": "debug",
+        "z": "737f034f204697d3",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "174b51cb66dbfaf8",
+        "type": "inject",
+        "z": "737f034f204697d3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 20,
+        "wires": [
+            [
+                "31ac0e30ed260962"
+            ]
+        ]
+    },
+    {
+        "id": "31ac0e30ed260962",
+        "type": "change",
+        "z": "737f034f204697d3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "current",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 20,
+        "wires": [
+            []
+        ]
     }
 ]
