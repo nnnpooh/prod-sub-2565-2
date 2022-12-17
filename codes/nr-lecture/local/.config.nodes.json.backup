@@ -415,46 +415,5 @@
                 "file": "C:\\Users\\nnnpo\\Coding\\class\\prod-sup-2565-2\\codes\\nr-lecture\\node_modules\\@node-red\\nodes\\core\\storage\\23-watch.js"
             }
         }
-    },
-    "node-red-contrib-cloud-firestore": {
-        "name": "node-red-contrib-cloud-firestore",
-        "version": "3.1.0",
-        "local": true,
-        "user": true,
-        "nodes": {
-            "firebaseAdmin": {
-                "name": "firebaseAdmin",
-                "types": [
-                    "firebase admin"
-                ],
-                "enabled": true,
-                "local": true,
-                "user": false,
-                "module": "node-red-contrib-cloud-firestore",
-                "file": "C:\\Users\\nnnpo\\Coding\\class\\prod-sup-2565-2\\codes\\nr-lecture\\local\\node_modules\\node-red-contrib-cloud-firestore\\src\\admin\\firebaseAdmin.js"
-            },
-            "firestoreIn": {
-                "name": "firestoreIn",
-                "types": [
-                    "Firestore in"
-                ],
-                "enabled": true,
-                "local": true,
-                "user": false,
-                "module": "node-red-contrib-cloud-firestore",
-                "file": "C:\\Users\\nnnpo\\Coding\\class\\prod-sup-2565-2\\codes\\nr-lecture\\local\\node_modules\\node-red-contrib-cloud-firestore\\src\\Read\\Read.js"
-            },
-            "firestoreOut": {
-                "name": "firestoreOut",
-                "types": [
-                    "Firestore out"
-                ],
-                "enabled": true,
-                "local": true,
-                "user": false,
-                "module": "node-red-contrib-cloud-firestore",
-                "file": "C:\\Users\\nnnpo\\Coding\\class\\prod-sup-2565-2\\codes\\nr-lecture\\local\\node_modules\\node-red-contrib-cloud-firestore\\src\\Write\\Write.js"
-            }
-        }
     }
 }

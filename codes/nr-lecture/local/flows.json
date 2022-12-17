@@ -66,7 +66,15 @@
     {
         "id": "685c9c72cffcba0b",
         "type": "tab",
-        "label": "M6",
+        "label": "M6-1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b3af211b55fb47eb",
+        "type": "tab",
+        "label": "M6-2",
         "disabled": false,
         "info": "",
         "env": []
@@ -295,6 +303,54 @@
         ],
         "x": 54,
         "y": 359
+    },
+    {
+        "id": "dd9ce715d365fa01",
+        "type": "group",
+        "z": "685c9c72cffcba0b",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "c4e618e2d6ca476b",
+            "770dddfb6ec85e71",
+            "f723b68f33cac68c",
+            "31c4504d98f4dca5"
+        ],
+        "x": 34,
+        "y": 79,
+        "w": 652,
+        "h": 142
+    },
+    {
+        "id": "bb34aa2a5ed5fe2c",
+        "type": "group",
+        "z": "b3af211b55fb47eb",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "415796642efb77cb",
+            "f5de5511ea279cb9",
+            "54423e85066bc529",
+            "6e6628425cb1a6ab"
+        ],
+        "x": 74,
+        "y": 39,
+        "w": 612,
+        "h": 142
     },
     {
         "id": "d5ec1d31bf493bfe",
@@ -1823,6 +1879,7 @@
         "id": "e20d8d801bc6d099",
         "type": "mqtt in",
         "z": "74862c9e2dd68507",
+        "d": true,
         "name": "",
         "topic": "test/main",
         "qos": "1",
@@ -1915,25 +1972,10 @@
         "wires": []
     },
     {
-        "id": "f723b68f33cac68c",
-        "type": "Firestore out",
-        "z": "685c9c72cffcba0b",
-        "name": "Write",
-        "collection": "test",
-        "document": "",
-        "operation": "add",
-        "admin": "cda050e8c35da33e",
-        "eject": false,
-        "x": 610,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "c4e618e2d6ca476b",
         "type": "inject",
         "z": "685c9c72cffcba0b",
+        "g": "dd9ce715d365fa01",
         "name": "",
         "props": [
             {
@@ -1952,7 +1994,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 120,
+        "y": 180,
         "wires": [
             [
                 "770dddfb6ec85e71"
@@ -1960,11 +2002,60 @@
         ]
     },
     {
-        "id": "57b5d989d6f39779",
-        "type": "Firestore in",
+        "id": "770dddfb6ec85e71",
+        "type": "function",
         "z": "685c9c72cffcba0b",
-        "name": "",
-        "collection": "test",
+        "g": "dd9ce715d365fa01",
+        "name": "function 3",
+        "func": "const timestamp = new Date().getTime()\nconst value = Math.random()\nmsg.payload = {\n    \"value\": value,\n    \"timestamp\":timestamp\n    }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "f723b68f33cac68c"
+            ]
+        ]
+    },
+    {
+        "id": "f723b68f33cac68c",
+        "type": "Firestore out",
+        "z": "685c9c72cffcba0b",
+        "g": "dd9ce715d365fa01",
+        "name": "Firebase out",
+        "collection": "data",
+        "document": "",
+        "operation": "add",
+        "admin": "cda050e8c35da33e",
+        "eject": false,
+        "x": 590,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31c4504d98f4dca5",
+        "type": "comment",
+        "z": "685c9c72cffcba0b",
+        "g": "dd9ce715d365fa01",
+        "name": "Writing to database",
+        "info": "",
+        "x": 150,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "415796642efb77cb",
+        "type": "Firestore in",
+        "z": "b3af211b55fb47eb",
+        "g": "bb34aa2a5ed5fe2c",
+        "name": "Firebase in",
+        "collection": "data",
         "group": false,
         "document": "",
         "realtime": true,
@@ -1974,24 +2065,28 @@
                     "field": "timestamp",
                     "direction": "asc"
                 }
+            },
+            {
+                "limit": 5
             }
         ],
         "admin": "cda050e8c35da33e",
         "snapHandler": "",
         "eject": false,
-        "x": 110,
-        "y": 180,
+        "x": 170,
+        "y": 140,
         "wires": [
             [
-                "7e23cce730a6b68f"
+                "54423e85066bc529"
             ]
         ]
     },
     {
-        "id": "6d1bc3c2f65f1c17",
+        "id": "f5de5511ea279cb9",
         "type": "debug",
-        "z": "685c9c72cffcba0b",
-        "name": "debug 9",
+        "z": "b3af211b55fb47eb",
+        "g": "bb34aa2a5ed5fe2c",
+        "name": "debug 11",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -1999,47 +2094,40 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
-        "y": 200,
+        "x": 580,
+        "y": 140,
         "wires": []
     },
     {
-        "id": "770dddfb6ec85e71",
+        "id": "54423e85066bc529",
         "type": "function",
-        "z": "685c9c72cffcba0b",
-        "name": "function 3",
-        "func": "const timestamp = msg.payload\nmsg.payload = {\"value\": Math.random(), \"timestamp\":timestamp}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 100,
-        "wires": [
-            [
-                "f723b68f33cac68c"
-            ]
-        ]
-    },
-    {
-        "id": "7e23cce730a6b68f",
-        "type": "function",
-        "z": "685c9c72cffcba0b",
-        "name": "function 4",
+        "z": "b3af211b55fb47eb",
+        "g": "bb34aa2a5ed5fe2c",
+        "name": "function 6",
         "func": "let payload = msg.payload\nlet textOut = ''\n\nfor (const [key, value] of Object.entries(payload)) {\n    const date = new Date(value.timestamp)\n    const datestring = date.toLocaleDateString()\n    const timestring = date.toLocaleTimeString()\n    const reading = value.value.toFixed(2)\n    textOut += `${datestring} ${timestring}: ${reading} \\n`\n}\n\nmsg.payload = textOut;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 260,
-        "y": 180,
+        "x": 380,
+        "y": 140,
         "wires": [
             [
-                "6d1bc3c2f65f1c17"
+                "f5de5511ea279cb9"
             ]
         ]
+    },
+    {
+        "id": "6e6628425cb1a6ab",
+        "type": "comment",
+        "z": "b3af211b55fb47eb",
+        "g": "bb34aa2a5ed5fe2c",
+        "name": "Reading from database",
+        "info": "",
+        "x": 200,
+        "y": 80,
+        "wires": []
     },
     {
         "id": "be4341acbb22733d",
@@ -2072,6 +2160,7 @@
         "id": "997e77e594d52d2c",
         "type": "inject",
         "z": "737f034f204697d3",
+        "d": true,
         "name": "",
         "props": [
             {
