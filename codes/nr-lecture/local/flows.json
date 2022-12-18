@@ -82,7 +82,7 @@
     {
         "id": "737f034f204697d3",
         "type": "tab",
-        "label": "M7",
+        "label": "M7-1",
         "disabled": false,
         "info": "",
         "env": []
@@ -350,6 +350,58 @@
         "x": 74,
         "y": 39,
         "w": 612,
+        "h": 142
+    },
+    {
+        "id": "82e871be3cbd8cf6",
+        "type": "group",
+        "z": "737f034f204697d3",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "997e77e594d52d2c",
+            "b1a701ca58807457",
+            "74bcce45a82c8a23",
+            "dc67100cd8b6c492",
+            "eb2cd3128f5ed150",
+            "174b51cb66dbfaf8",
+            "31ac0e30ed260962",
+            "c531b8b1fd7c2eca",
+            "eb1cbf107b0b9794"
+        ],
+        "x": 14,
+        "y": 99,
+        "w": 1052,
+        "h": 322
+    },
+    {
+        "id": "47be43c74fdd59fe",
+        "type": "group",
+        "z": "737f034f204697d3",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "07e23e6845a0661b",
+            "7c382d9dd90f4a71",
+            "d3ea8c5b01658ad0"
+        ],
+        "x": 14,
+        "y": 459,
+        "w": 412,
         "h": 142
     },
     {
@@ -2025,6 +2077,7 @@
         "id": "f723b68f33cac68c",
         "type": "Firestore out",
         "z": "685c9c72cffcba0b",
+        "d": true,
         "g": "dd9ce715d365fa01",
         "name": "Firebase out",
         "collection": "data",
@@ -2053,6 +2106,7 @@
         "id": "415796642efb77cb",
         "type": "Firestore in",
         "z": "b3af211b55fb47eb",
+        "d": true,
         "g": "bb34aa2a5ed5fe2c",
         "name": "Firebase in",
         "collection": "data",
@@ -2130,37 +2184,10 @@
         "wires": []
     },
     {
-        "id": "be4341acbb22733d",
-        "type": "change",
-        "z": "737f034f204697d3",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "current",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 480,
-        "y": 120,
-        "wires": [
-            [
-                "07e23e6845a0661b"
-            ]
-        ]
-    },
-    {
         "id": "997e77e594d52d2c",
         "type": "inject",
         "z": "737f034f204697d3",
-        "d": true,
+        "g": "82e871be3cbd8cf6",
         "name": "",
         "props": [
             {
@@ -2178,8 +2205,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 100,
+        "x": 130,
+        "y": 240,
         "wires": [
             [
                 "b1a701ca58807457"
@@ -2190,6 +2217,7 @@
         "id": "b1a701ca58807457",
         "type": "function",
         "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
         "name": "function 5",
         "func": "msg.payload = Math.random()\nreturn msg;",
         "outputs": 1,
@@ -2197,8 +2225,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 240,
-        "y": 200,
+        "x": 320,
+        "y": 240,
         "wires": [
             [
                 "74bcce45a82c8a23",
@@ -2211,6 +2239,7 @@
         "id": "74bcce45a82c8a23",
         "type": "switch",
         "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -2224,11 +2253,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 310,
-        "y": 120,
+        "x": 530,
+        "y": 240,
         "wires": [
             [
-                "be4341acbb22733d"
+                "31ac0e30ed260962"
             ]
         ]
     },
@@ -2236,23 +2265,25 @@
         "id": "07e23e6845a0661b",
         "type": "ui_text",
         "z": "737f034f204697d3",
+        "g": "47be43c74fdd59fe",
         "group": "6adb718199fdcdb6",
         "order": 0,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "text",
+        "label": "Max value",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 730,
-        "y": 120,
+        "x": 330,
+        "y": 560,
         "wires": []
     },
     {
         "id": "dc67100cd8b6c492",
         "type": "ui_chart",
         "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
         "name": "",
         "group": "6adb718199fdcdb6",
         "order": 1,
@@ -2287,8 +2318,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 670,
-        "y": 240,
+        "x": 530,
+        "y": 320,
         "wires": [
             []
         ]
@@ -2297,22 +2328,25 @@
         "id": "eb2cd3128f5ed150",
         "type": "debug",
         "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
         "name": "debug 10",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 320,
+        "x": 540,
+        "y": 380,
         "wires": []
     },
     {
         "id": "174b51cb66dbfaf8",
         "type": "inject",
         "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
         "name": "",
         "props": [
             {
@@ -2328,10 +2362,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 20,
+        "payload": "0",
+        "payloadType": "num",
+        "x": 530,
+        "y": 160,
         "wires": [
             [
                 "31ac0e30ed260962"
@@ -2342,14 +2376,15 @@
         "id": "31ac0e30ed260962",
         "type": "change",
         "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
         "name": "",
         "rules": [
             {
                 "t": "set",
                 "p": "current",
                 "pt": "flow",
-                "to": "0",
-                "tot": "num"
+                "to": "payload",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -2357,10 +2392,75 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 260,
-        "y": 20,
+        "x": 740,
+        "y": 240,
         "wires": [
-            []
+            [
+                "c531b8b1fd7c2eca"
+            ]
         ]
+    },
+    {
+        "id": "7c382d9dd90f4a71",
+        "type": "mqtt in",
+        "z": "737f034f204697d3",
+        "g": "47be43c74fdd59fe",
+        "name": "",
+        "topic": "nirand/current",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d5ec1d31bf493bfe",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "07e23e6845a0661b"
+            ]
+        ]
+    },
+    {
+        "id": "c531b8b1fd7c2eca",
+        "type": "mqtt out",
+        "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
+        "name": "",
+        "topic": "nirand/current",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d5ec1d31bf493bfe",
+        "x": 960,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "eb1cbf107b0b9794",
+        "type": "comment",
+        "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
+        "name": "Data and Chart",
+        "info": "",
+        "x": 120,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d3ea8c5b01658ad0",
+        "type": "comment",
+        "z": "737f034f204697d3",
+        "g": "47be43c74fdd59fe",
+        "name": "Textbox",
+        "info": "",
+        "x": 90,
+        "y": 500,
+        "wires": []
     }
 ]

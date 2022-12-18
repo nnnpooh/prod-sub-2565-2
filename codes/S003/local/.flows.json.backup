@@ -40,6 +40,22 @@
         "env": []
     },
     {
+        "id": "bd5329910dc78e84",
+        "type": "tab",
+        "label": "M6-1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "770560acb9a8fbbc",
+        "type": "tab",
+        "label": "M6-2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "2ca4a9ec79df2bd2",
         "type": "group",
         "z": "d38e962e6ef4a91d",
@@ -107,6 +123,126 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "1b48e47df76b2678",
+        "type": "firebase admin",
+        "name": "Firestore"
+    },
+    {
+        "id": "2a0ed91542aa6a3f",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "16f01d4279618ea8",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "16f01d4279618ea8",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "7c5d974bd146bbae",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
     },
     {
         "id": "ef931151ec9171c9",
@@ -617,6 +753,7 @@
         "id": "bf4f5802f4c2d5c3",
         "type": "mqtt in",
         "z": "a25c00a714d46f2c",
+        "d": true,
         "name": "",
         "topic": "test/main",
         "qos": "2",
@@ -654,6 +791,7 @@
         "id": "a7dca0ea54057c59",
         "type": "mqtt out",
         "z": "a25c00a714d46f2c",
+        "d": true,
         "name": "",
         "topic": "test/main",
         "qos": "2",
@@ -687,14 +825,246 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
+        "payload": "Hi form node-red",
+        "payloadType": "str",
+        "x": 180,
         "y": 260,
         "wires": [
             [
                 "a7dca0ea54057c59"
             ]
         ]
+    },
+    {
+        "id": "bb549195cde26858",
+        "type": "comment",
+        "z": "bd5329910dc78e84",
+        "name": "Write data to database",
+        "info": "",
+        "x": 200,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "0bb50a0593561f70",
+        "type": "inject",
+        "z": "bd5329910dc78e84",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "857db6d30e4346e3"
+            ]
+        ]
+    },
+    {
+        "id": "7e194f739000098e",
+        "type": "Firestore out",
+        "z": "bd5329910dc78e84",
+        "name": "",
+        "collection": "data",
+        "document": "",
+        "operation": "add",
+        "admin": "1b48e47df76b2678",
+        "eject": false,
+        "x": 600,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "857db6d30e4346e3",
+        "type": "function",
+        "z": "bd5329910dc78e84",
+        "name": "function 3",
+        "func": "const timestamp = new Date().getTime();\nconst value = Math.random();\nmsg.payload = {\n    value: value,\n    timestamp: timestamp,\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "7e194f739000098e"
+            ]
+        ]
+    },
+    {
+        "id": "814fe651b6bdc98d",
+        "type": "comment",
+        "z": "770560acb9a8fbbc",
+        "name": "Reading from database",
+        "info": "",
+        "x": 180,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ce321fd5c6949e88",
+        "type": "Firestore in",
+        "z": "770560acb9a8fbbc",
+        "name": "",
+        "collection": "data",
+        "group": false,
+        "document": "",
+        "realtime": true,
+        "query": [
+            {
+                "orderBy": {
+                    "field": "timestamp",
+                    "direction": "desc"
+                }
+            },
+            {
+                "limit": 5
+            }
+        ],
+        "admin": "1b48e47df76b2678",
+        "snapHandler": "",
+        "eject": false,
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "36dc1c505f00447b"
+            ]
+        ]
+    },
+    {
+        "id": "3d72ab0d764869d4",
+        "type": "debug",
+        "z": "770560acb9a8fbbc",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "faf0c8e09e289009",
+        "type": "inject",
+        "z": "770560acb9a8fbbc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 380,
+        "wires": [
+            [
+                "79b2010dbba9fec1"
+            ]
+        ]
+    },
+    {
+        "id": "f36494f89dfe1e7b",
+        "type": "Firestore out",
+        "z": "770560acb9a8fbbc",
+        "name": "",
+        "collection": "data",
+        "document": "",
+        "operation": "add",
+        "admin": "1b48e47df76b2678",
+        "eject": false,
+        "x": 600,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "79b2010dbba9fec1",
+        "type": "function",
+        "z": "770560acb9a8fbbc",
+        "name": "function 4",
+        "func": "const timestamp = new Date().getTime();\nconst value = Math.random();\nmsg.payload = {\n    value: value,\n    timestamp: timestamp,\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 380,
+        "wires": [
+            [
+                "f36494f89dfe1e7b"
+            ]
+        ]
+    },
+    {
+        "id": "36dc1c505f00447b",
+        "type": "function",
+        "z": "770560acb9a8fbbc",
+        "name": "function 5",
+        "func": "let payload = msg.payload;\nlet textOut = \"\";\n\nfor (const [key, value] of Object.entries(payload)) {\n    const date = new Date(value.timestamp);\n    const datestring = date.toLocaleDateString();\n    const timestring = date.toLocaleTimeString();\n    const reading = value.value.toFixed(2);\n    textOut += `${datestring} ${timestring}: ${reading} \\n`;\n}\n\nmsg.payload = textOut;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "3d72ab0d764869d4",
+                "534472981b4f98f0"
+            ]
+        ]
+    },
+    {
+        "id": "534472981b4f98f0",
+        "type": "ui_text",
+        "z": "770560acb9a8fbbc",
+        "group": "2a0ed91542aa6a3f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 590,
+        "y": 280,
+        "wires": []
     }
 ]
