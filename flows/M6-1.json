@@ -1,0 +1,118 @@
+[
+    {
+        "id": "685c9c72cffcba0b",
+        "type": "tab",
+        "label": "M6-1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dd9ce715d365fa01",
+        "type": "group",
+        "z": "685c9c72cffcba0b",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "c4e618e2d6ca476b",
+            "770dddfb6ec85e71",
+            "f723b68f33cac68c",
+            "31c4504d98f4dca5"
+        ],
+        "x": 34,
+        "y": 79,
+        "w": 652,
+        "h": 142
+    },
+    {
+        "id": "c4e618e2d6ca476b",
+        "type": "inject",
+        "z": "685c9c72cffcba0b",
+        "g": "dd9ce715d365fa01",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "770dddfb6ec85e71"
+            ]
+        ]
+    },
+    {
+        "id": "770dddfb6ec85e71",
+        "type": "function",
+        "z": "685c9c72cffcba0b",
+        "g": "dd9ce715d365fa01",
+        "name": "function 3",
+        "func": "const timestamp = new Date().getTime()\nconst value = Math.random()\nmsg.payload = {\n    \"value\": value,\n    \"timestamp\":timestamp\n    }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "f723b68f33cac68c"
+            ]
+        ]
+    },
+    {
+        "id": "f723b68f33cac68c",
+        "type": "Firestore out",
+        "z": "685c9c72cffcba0b",
+        "d": true,
+        "g": "dd9ce715d365fa01",
+        "name": "Firebase out",
+        "collection": "data",
+        "document": "",
+        "operation": "add",
+        "admin": "cda050e8c35da33e",
+        "eject": false,
+        "x": 590,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31c4504d98f4dca5",
+        "type": "comment",
+        "z": "685c9c72cffcba0b",
+        "g": "dd9ce715d365fa01",
+        "name": "Writing to database",
+        "info": "",
+        "x": 150,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "cda050e8c35da33e",
+        "type": "firebase admin",
+        "name": "Prodsup"
+    }
+]

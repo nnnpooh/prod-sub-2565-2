@@ -1,0 +1,240 @@
+[
+    {
+        "id": "45a20a652ee00a22",
+        "type": "tab",
+        "label": "M7-1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "49f35958dca88e4d",
+        "type": "group",
+        "z": "45a20a652ee00a22",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "ae5929804fa5863e",
+            "fcae093cdf082ce9",
+            "d21ee972eb7ed3e2",
+            "f4a0fa5d35a024cc"
+        ],
+        "x": 114,
+        "y": 59,
+        "w": 652,
+        "h": 142
+    },
+    {
+        "id": "8d546d2a23be975b",
+        "type": "group",
+        "z": "45a20a652ee00a22",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "909147862436d116",
+            "b965ede789e0858f",
+            "391dcb4484627b3d",
+            "621d1a65b0a688fb"
+        ],
+        "x": 114,
+        "y": 239,
+        "w": 472,
+        "h": 202
+    },
+    {
+        "id": "ae5929804fa5863e",
+        "type": "change",
+        "z": "45a20a652ee00a22",
+        "g": "49f35958dca88e4d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "value",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fcae093cdf082ce9",
+        "type": "inject",
+        "z": "45a20a652ee00a22",
+        "d": true,
+        "g": "49f35958dca88e4d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "d21ee972eb7ed3e2"
+            ]
+        ]
+    },
+    {
+        "id": "909147862436d116",
+        "type": "debug",
+        "z": "45a20a652ee00a22",
+        "g": "8d546d2a23be975b",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b965ede789e0858f",
+        "type": "inject",
+        "z": "45a20a652ee00a22",
+        "d": true,
+        "g": "8d546d2a23be975b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "value",
+        "payloadType": "flow",
+        "x": 230,
+        "y": 340,
+        "wires": [
+            [
+                "909147862436d116",
+                "391dcb4484627b3d"
+            ]
+        ]
+    },
+    {
+        "id": "391dcb4484627b3d",
+        "type": "ui_text",
+        "z": "45a20a652ee00a22",
+        "g": "8d546d2a23be975b",
+        "group": "d5dcf5067cffc712",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 470,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "d21ee972eb7ed3e2",
+        "type": "function",
+        "z": "45a20a652ee00a22",
+        "g": "49f35958dca88e4d",
+        "name": "function 7",
+        "func": "msg.payload = Math.random()\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 160,
+        "wires": [
+            [
+                "ae5929804fa5863e"
+            ]
+        ]
+    },
+    {
+        "id": "f4a0fa5d35a024cc",
+        "type": "comment",
+        "z": "45a20a652ee00a22",
+        "g": "49f35958dca88e4d",
+        "name": "Generate random number",
+        "info": "",
+        "x": 250,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "621d1a65b0a688fb",
+        "type": "comment",
+        "z": "45a20a652ee00a22",
+        "g": "8d546d2a23be975b",
+        "name": "Display values",
+        "info": "",
+        "x": 210,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d5dcf5067cffc712",
+        "type": "ui_group",
+        "name": "T2",
+        "tab": "af39225ac1451fe6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "af39225ac1451fe6",
+        "type": "ui_tab",
+        "name": "Context",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

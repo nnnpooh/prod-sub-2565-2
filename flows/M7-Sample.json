@@ -1,0 +1,390 @@
+[
+    {
+        "id": "737f034f204697d3",
+        "type": "tab",
+        "label": "M7-Sample",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "82e871be3cbd8cf6",
+        "type": "group",
+        "z": "737f034f204697d3",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "997e77e594d52d2c",
+            "b1a701ca58807457",
+            "74bcce45a82c8a23",
+            "dc67100cd8b6c492",
+            "eb2cd3128f5ed150",
+            "174b51cb66dbfaf8",
+            "31ac0e30ed260962",
+            "c531b8b1fd7c2eca",
+            "eb1cbf107b0b9794"
+        ],
+        "x": 14,
+        "y": 99,
+        "w": 1052,
+        "h": 322
+    },
+    {
+        "id": "47be43c74fdd59fe",
+        "type": "group",
+        "z": "737f034f204697d3",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "07e23e6845a0661b",
+            "7c382d9dd90f4a71",
+            "d3ea8c5b01658ad0"
+        ],
+        "x": 14,
+        "y": 459,
+        "w": 412,
+        "h": 142
+    },
+    {
+        "id": "997e77e594d52d2c",
+        "type": "inject",
+        "z": "737f034f204697d3",
+        "d": true,
+        "g": "82e871be3cbd8cf6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "b1a701ca58807457"
+            ]
+        ]
+    },
+    {
+        "id": "b1a701ca58807457",
+        "type": "function",
+        "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
+        "name": "function 5",
+        "func": "msg.payload = Math.random()\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "74bcce45a82c8a23",
+                "eb2cd3128f5ed150",
+                "dc67100cd8b6c492"
+            ]
+        ]
+    },
+    {
+        "id": "74bcce45a82c8a23",
+        "type": "switch",
+        "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "current",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 530,
+        "y": 240,
+        "wires": [
+            [
+                "31ac0e30ed260962"
+            ]
+        ]
+    },
+    {
+        "id": "07e23e6845a0661b",
+        "type": "ui_text",
+        "z": "737f034f204697d3",
+        "g": "47be43c74fdd59fe",
+        "group": "6adb718199fdcdb6",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Max value",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 330,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "dc67100cd8b6c492",
+        "type": "ui_chart",
+        "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
+        "name": "",
+        "group": "6adb718199fdcdb6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 530,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb2cd3128f5ed150",
+        "type": "debug",
+        "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "174b51cb66dbfaf8",
+        "type": "inject",
+        "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 530,
+        "y": 160,
+        "wires": [
+            [
+                "31ac0e30ed260962"
+            ]
+        ]
+    },
+    {
+        "id": "31ac0e30ed260962",
+        "type": "change",
+        "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "current",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 240,
+        "wires": [
+            [
+                "c531b8b1fd7c2eca"
+            ]
+        ]
+    },
+    {
+        "id": "7c382d9dd90f4a71",
+        "type": "mqtt in",
+        "z": "737f034f204697d3",
+        "g": "47be43c74fdd59fe",
+        "name": "",
+        "topic": "nirand/current",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d5ec1d31bf493bfe",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "07e23e6845a0661b"
+            ]
+        ]
+    },
+    {
+        "id": "c531b8b1fd7c2eca",
+        "type": "mqtt out",
+        "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
+        "name": "",
+        "topic": "nirand/current",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d5ec1d31bf493bfe",
+        "x": 960,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "eb1cbf107b0b9794",
+        "type": "comment",
+        "z": "737f034f204697d3",
+        "g": "82e871be3cbd8cf6",
+        "name": "Data and Chart",
+        "info": "",
+        "x": 120,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d3ea8c5b01658ad0",
+        "type": "comment",
+        "z": "737f034f204697d3",
+        "g": "47be43c74fdd59fe",
+        "name": "Textbox",
+        "info": "",
+        "x": 90,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "6adb718199fdcdb6",
+        "type": "ui_group",
+        "name": "T1",
+        "tab": "1d7942491b35b884",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d5ec1d31bf493bfe",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "iecmu.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1d7942491b35b884",
+        "type": "ui_tab",
+        "name": "Database",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]

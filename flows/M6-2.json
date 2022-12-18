@@ -1,0 +1,120 @@
+[
+    {
+        "id": "b3af211b55fb47eb",
+        "type": "tab",
+        "label": "M6-2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bb34aa2a5ed5fe2c",
+        "type": "group",
+        "z": "b3af211b55fb47eb",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "415796642efb77cb",
+            "f5de5511ea279cb9",
+            "54423e85066bc529",
+            "6e6628425cb1a6ab"
+        ],
+        "x": 74,
+        "y": 39,
+        "w": 612,
+        "h": 142
+    },
+    {
+        "id": "415796642efb77cb",
+        "type": "Firestore in",
+        "z": "b3af211b55fb47eb",
+        "d": true,
+        "g": "bb34aa2a5ed5fe2c",
+        "name": "Firebase in",
+        "collection": "data",
+        "group": false,
+        "document": "",
+        "realtime": true,
+        "query": [
+            {
+                "orderBy": {
+                    "field": "timestamp",
+                    "direction": "asc"
+                }
+            },
+            {
+                "limit": 5
+            }
+        ],
+        "admin": "cda050e8c35da33e",
+        "snapHandler": "",
+        "eject": false,
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "54423e85066bc529"
+            ]
+        ]
+    },
+    {
+        "id": "f5de5511ea279cb9",
+        "type": "debug",
+        "z": "b3af211b55fb47eb",
+        "g": "bb34aa2a5ed5fe2c",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "54423e85066bc529",
+        "type": "function",
+        "z": "b3af211b55fb47eb",
+        "g": "bb34aa2a5ed5fe2c",
+        "name": "function 6",
+        "func": "let payload = msg.payload\nlet textOut = ''\n\nfor (const [key, value] of Object.entries(payload)) {\n    const date = new Date(value.timestamp)\n    const datestring = date.toLocaleDateString()\n    const timestring = date.toLocaleTimeString()\n    const reading = value.value.toFixed(2)\n    textOut += `${datestring} ${timestring}: ${reading} \\n`\n}\n\nmsg.payload = textOut;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "f5de5511ea279cb9"
+            ]
+        ]
+    },
+    {
+        "id": "6e6628425cb1a6ab",
+        "type": "comment",
+        "z": "b3af211b55fb47eb",
+        "g": "bb34aa2a5ed5fe2c",
+        "name": "Reading from database",
+        "info": "",
+        "x": 200,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "cda050e8c35da33e",
+        "type": "firebase admin",
+        "name": "Prodsup"
+    }
+]
