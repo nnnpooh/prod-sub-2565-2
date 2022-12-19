@@ -45,27 +45,32 @@
 <tr>
 <td>โปรเจค</td>
 <td>Monitoring Flow</td>
-<td style="text-align:center">10</td>
+<td style="text-align:center">8</td>
 </tr>
 <tr>
 <td></td>
 <td>Notification Flow</td>
-<td style="text-align:center">10</td>
+<td style="text-align:center">8</td>
 </tr>
 <tr>
 <td></td>
 <td>Control Flow</td>
-<td style="text-align:center">10</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td></td>
+<td>Data stroage</td>
+<td style="text-align:center">8</td>
 </tr>
 <tr>
 <td>นำเสนอ</td>
 <td>Slide</td>
-<td style="text-align:center">5</td>
+<td style="text-align:center">4</td>
 </tr>
 <tr>
 <td></td>
 <td>Presenting / demoing</td>
-<td style="text-align:center">5</td>
+<td style="text-align:center">4</td>
 </tr>
 </tbody>
 </table>
@@ -74,10 +79,8 @@
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-paginate="true" data-footer="255217: Production Supporting Systems in Factories" data-theme="default" data-marpit-pagination="5" data-marpit-pagination-total="12" style="--paginate:true;--footer:255217: Production Supporting Systems in Factories;--theme:default;">
 <h1>Schedule</h1>
 <ul>
-<li><a href="https://o365cmu-my.sharepoint.com/:x:/g/personal/nirand_p_cmu_ac_th/Ed2TdOI4wNdNnrPq886N8lgBuXHNxiIsGfHKOHFvuHZOAw?e=N4Q5SE">รายชื่อ</a></li>
-<li>วันที่ 10 และ 11 กพ 2565</li>
 <li>เรียงลำดับการนำเสนอตามกลุ่ม 1, 2, 3 ...</li>
-<li><strong>นำเสนอกลุ่มละไม่เกิน 7 นาที</strong></li>
+<li><strong>นำเสนอกลุ่มละไม่เกิน 10 นาที</strong></li>
 </ul>
 <footer>255217: Production Supporting Systems in Factories</footer>
 </section>
@@ -90,6 +93,7 @@
 <li>Monitoring</li>
 <li>Notification</li>
 <li>Control</li>
+<li>Data stroage</li>
 </ul>
 </li>
 <li>อธิบายการทำงานของ Flow ต่างๆ</li>
@@ -113,7 +117,7 @@ msg.<span class="hljs-property">payload</span> = {
 
 <span class="hljs-keyword">const</span> auth = <span class="hljs-string">`Bearer &lt;&lt;TOKEN&gt;&gt;`</span>;
 msg.<span class="hljs-property">headers</span> = {
-  <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/x-www-form-urlencoded&#x27;</span>,
+  <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;application/x-www-form-urlencoded&quot;</span>,
   <span class="hljs-title class_">Authorization</span>: auth,
 };
 
