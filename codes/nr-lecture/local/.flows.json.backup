@@ -96,6 +96,14 @@
         "env": []
     },
     {
+        "id": "5aa47249ef53e0a3",
+        "type": "tab",
+        "label": "Context Test",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "edb79df4fdc2edd1",
         "type": "group",
         "z": "3660f5718b8fd1c3",
@@ -381,9 +389,7 @@
             "eb1cbf107b0b9794"
         ],
         "x": 14,
-        "y": 99,
-        "w": 1052,
-        "h": 322
+        "y": 99
     },
     {
         "id": "47be43c74fdd59fe",
@@ -404,9 +410,7 @@
             "d3ea8c5b01658ad0"
         ],
         "x": 14,
-        "y": 459,
-        "w": 412,
-        "h": 142
+        "y": 459
     },
     {
         "id": "49f35958dca88e4d",
@@ -428,9 +432,7 @@
             "f4a0fa5d35a024cc"
         ],
         "x": 114,
-        "y": 59,
-        "w": 652,
-        "h": 142
+        "y": 59
     },
     {
         "id": "8d546d2a23be975b",
@@ -452,9 +454,7 @@
             "621d1a65b0a688fb"
         ],
         "x": 114,
-        "y": 239,
-        "w": 472,
-        "h": 202
+        "y": 239
     },
     {
         "id": "d5ec1d31bf493bfe",
@@ -2641,6 +2641,7 @@
         "id": "7c382d9dd90f4a71",
         "type": "mqtt in",
         "z": "737f034f204697d3",
+        "d": true,
         "g": "47be43c74fdd59fe",
         "name": "",
         "topic": "nirand/current",
@@ -2663,6 +2664,7 @@
         "id": "c531b8b1fd7c2eca",
         "type": "mqtt out",
         "z": "737f034f204697d3",
+        "d": true,
         "g": "82e871be3cbd8cf6",
         "name": "",
         "topic": "nirand/current",
@@ -2699,5 +2701,115 @@
         "x": 90,
         "y": 500,
         "wires": []
+    },
+    {
+        "id": "64f080c710146090",
+        "type": "inject",
+        "z": "5aa47249ef53e0a3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "7109bcb4c8eeea1a"
+            ]
+        ]
+    },
+    {
+        "id": "7109bcb4c8eeea1a",
+        "type": "function",
+        "z": "5aa47249ef53e0a3",
+        "name": "function 8",
+        "func": "const counter = flow.get(\"counter\") || 0\nflow.set(\"counter\", counter + 1)\nmsg.payload = counter + 1\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 200,
+        "wires": [
+            [
+                "4b32c96dc9753396"
+            ]
+        ]
+    },
+    {
+        "id": "4b32c96dc9753396",
+        "type": "debug",
+        "z": "5aa47249ef53e0a3",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "53502f968a67abb1",
+        "type": "inject",
+        "z": "5aa47249ef53e0a3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "233cc5e76149cb9a",
+        "type": "function",
+        "z": "5aa47249ef53e0a3",
+        "name": "function 9",
+        "func": "const counter = flow.get(\"counter\") || 0\nflow.set(\"counter\",counter - 1)\nmsg.payload = counter - 1\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "4b32c96dc9753396"
+            ]
+        ]
     }
 ]
