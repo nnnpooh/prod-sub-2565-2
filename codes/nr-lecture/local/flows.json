@@ -104,6 +104,14 @@
         "env": []
     },
     {
+        "id": "e1cdc475017f8003",
+        "type": "tab",
+        "label": "FB Filter",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "edb79df4fdc2edd1",
         "type": "group",
         "z": "3660f5718b8fd1c3",
@@ -340,7 +348,9 @@
             "31c4504d98f4dca5"
         ],
         "x": 34,
-        "y": 79
+        "y": 79,
+        "w": 652,
+        "h": 142
     },
     {
         "id": "bb34aa2a5ed5fe2c",
@@ -2813,5 +2823,69 @@
                 "4b32c96dc9753396"
             ]
         ]
+    },
+    {
+        "id": "cf29160e843df7c5",
+        "type": "Firestore in",
+        "z": "e1cdc475017f8003",
+        "name": "",
+        "collection": "data",
+        "group": false,
+        "document": "",
+        "realtime": true,
+        "query": [
+            {
+                "where": {
+                    "field": "timestamp",
+                    "operation": ">=",
+                    "value": "0"
+                }
+            }
+        ],
+        "admin": "cda050e8c35da33e",
+        "snapHandler": "",
+        "eject": false,
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "4027d374efae2d15"
+            ]
+        ]
+    },
+    {
+        "id": "4027d374efae2d15",
+        "type": "function",
+        "z": "e1cdc475017f8003",
+        "name": "function 10",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 140,
+        "wires": [
+            [
+                "185c6556842e429e"
+            ]
+        ]
+    },
+    {
+        "id": "185c6556842e429e",
+        "type": "debug",
+        "z": "e1cdc475017f8003",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 140,
+        "wires": []
     }
 ]
