@@ -24,6 +24,49 @@
         "env": []
     },
     {
+        "id": "fc31f01b7d38f5dd",
+        "type": "tab",
+        "label": "MQTT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5aff8735a3798f58",
+        "type": "tab",
+        "label": "Fake Sensor",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ad5e02bdc28c7a7a",
+        "type": "mqtt-broker",
+        "name": "MQTT Broker",
+        "broker": "iecmu.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
         "id": "c032af3e2db0a95b",
         "type": "http in",
         "z": "f6cc6feaf14a54c9",
@@ -408,7 +451,7 @@
                 "vt": "str"
             },
             {
-                "p": "้headers",
+                "p": "headers",
                 "v": "{\"Content-Type\":\"application/x-www-form-urlencoded\",\"Authorization\":\"Bearer t3eKqH08aU0WUCr75r0erkYUMjeC65VUw5NbUKciRo7\"}",
                 "vt": "json"
             },
@@ -430,6 +473,282 @@
         "wires": [
             [
                 "2056a99f98deb17e"
+            ]
+        ]
+    },
+    {
+        "id": "c2f55c15b92a6d98",
+        "type": "mqtt out",
+        "z": "fc31f01b7d38f5dd",
+        "d": true,
+        "name": "",
+        "topic": "test/main",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ad5e02bdc28c7a7a",
+        "x": 500,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5e71258654d60490",
+        "type": "inject",
+        "z": "fc31f01b7d38f5dd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hi from node-red",
+        "payloadType": "str",
+        "x": 280,
+        "y": 100,
+        "wires": [
+            [
+                "c2f55c15b92a6d98"
+            ]
+        ]
+    },
+    {
+        "id": "38a846c84d48cc4e",
+        "type": "mqtt in",
+        "z": "fc31f01b7d38f5dd",
+        "d": true,
+        "name": "",
+        "topic": "test/main",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "ad5e02bdc28c7a7a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "092106022dcac0b4"
+            ]
+        ]
+    },
+    {
+        "id": "092106022dcac0b4",
+        "type": "debug",
+        "z": "fc31f01b7d38f5dd",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a1db490407a464dd",
+        "type": "inject",
+        "z": "5aff8735a3798f58",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "8c1b9aae5a856c8e"
+            ]
+        ]
+    },
+    {
+        "id": "8c1b9aae5a856c8e",
+        "type": "function",
+        "z": "5aff8735a3798f58",
+        "name": "function 2",
+        "func": "msg.payload = Math.floor(Math.random()*20 + 20);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "95e9475c848e6976",
+                "9a9cba5ff21ec697"
+            ]
+        ]
+    },
+    {
+        "id": "95e9475c848e6976",
+        "type": "debug",
+        "z": "5aff8735a3798f58",
+        "d": true,
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9a9cba5ff21ec697",
+        "type": "mqtt out",
+        "z": "5aff8735a3798f58",
+        "name": "",
+        "topic": "pui/fakesensor",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ad5e02bdc28c7a7a",
+        "x": 620,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "868eb2ad8559ecac",
+        "type": "mqtt in",
+        "z": "5aff8735a3798f58",
+        "name": "",
+        "topic": "pui/fakesensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "ad5e02bdc28c7a7a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 320,
+        "wires": [
+            [
+                "f770d199897d3e86"
+            ]
+        ]
+    },
+    {
+        "id": "4f364bce460c8cbb",
+        "type": "debug",
+        "z": "5aff8735a3798f58",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f770d199897d3e86",
+        "type": "switch",
+        "z": "5aff8735a3798f58",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "30",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 320,
+        "wires": [
+            [
+                "9a126939299bb21c"
+            ]
+        ]
+    },
+    {
+        "id": "9a126939299bb21c",
+        "type": "function",
+        "z": "5aff8735a3798f58",
+        "name": "function 3",
+        "func": "const date = new Date();\nconst datestring = date.toLocaleDateString();\nconst timestring = date.toLocaleTimeString();\n\nmsg.payload = {\n    message: `${datestring} ${timestring}\\nValue: ${msg.payload.toFixed(2)}`,\n};\n\nconst auth = `Bearer wJrSgqGVvxvfXoE5Ld2H17BWq4VIKDNiC6N6bYMtVOg`;\nmsg.headers = {\n    \"Content-Type\": \"application/x-www-form-urlencoded\",\n    Authorization: auth,\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 320,
+        "wires": [
+            [
+                "4b1fbd22ee85e6a2"
+            ]
+        ]
+    },
+    {
+        "id": "4b1fbd22ee85e6a2",
+        "type": "http request",
+        "z": "5aff8735a3798f58",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://notify-api.line.me/api/notify",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 670,
+        "y": 420,
+        "wires": [
+            [
+                "4f364bce460c8cbb"
             ]
         ]
     }
