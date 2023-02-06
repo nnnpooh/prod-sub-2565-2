@@ -40,6 +40,14 @@
         "env": []
     },
     {
+        "id": "f96f977fc9fafdd8",
+        "type": "tab",
+        "label": "Filter Node",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "ad5e02bdc28c7a7a",
         "type": "mqtt-broker",
         "name": "MQTT Broker",
@@ -755,5 +763,70 @@
                 "4f364bce460c8cbb"
             ]
         ]
+    },
+    {
+        "id": "daa80eb5f2688c14",
+        "type": "rbe",
+        "z": "f96f977fc9fafdd8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 390,
+        "y": 160,
+        "wires": [
+            [
+                "695d55dc78eaa1d5"
+            ]
+        ]
+    },
+    {
+        "id": "f6565f321f9faa68",
+        "type": "inject",
+        "z": "f96f977fc9fafdd8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "num",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "daa80eb5f2688c14"
+            ]
+        ]
+    },
+    {
+        "id": "695d55dc78eaa1d5",
+        "type": "debug",
+        "z": "f96f977fc9fafdd8",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 160,
+        "wires": []
     }
 ]
