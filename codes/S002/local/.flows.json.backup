@@ -1,0 +1,171 @@
+[
+    {
+        "id": "d2417708ee0d44cc",
+        "type": "tab",
+        "label": "HTTP GET",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "20a727599ba9730b",
+        "type": "tab",
+        "label": "HTTP Server",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f2874cb629e84331",
+        "type": "http request",
+        "z": "d2417708ee0d44cc",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://cmu.ac.th",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "8263fcce5375391f",
+                "2deea39a5f1c17ac"
+            ]
+        ]
+    },
+    {
+        "id": "8263fcce5375391f",
+        "type": "debug",
+        "z": "d2417708ee0d44cc",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "44e0099db9c48c65",
+        "type": "inject",
+        "z": "d2417708ee0d44cc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "f2874cb629e84331"
+            ]
+        ]
+    },
+    {
+        "id": "2deea39a5f1c17ac",
+        "type": "file",
+        "z": "d2417708ee0d44cc",
+        "name": "",
+        "filename": "index.html",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 510,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ffe4906b02c6a91b",
+        "type": "http in",
+        "z": "20a727599ba9730b",
+        "name": "",
+        "url": "hello",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "f40902722a695a10"
+            ]
+        ]
+    },
+    {
+        "id": "ab9b9848741da078",
+        "type": "http response",
+        "z": "20a727599ba9730b",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 710,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "2f3e0928b89f06e1",
+        "type": "template",
+        "z": "20a727599ba9730b",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Helooooooo, {{time}}",
+        "output": "str",
+        "x": 540,
+        "y": 120,
+        "wires": [
+            [
+                "ab9b9848741da078"
+            ]
+        ]
+    },
+    {
+        "id": "f40902722a695a10",
+        "type": "function",
+        "z": "20a727599ba9730b",
+        "name": "function 1",
+        "func": "const date = new Date();\nmsg.time = date.toLocaleTimeString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 120,
+        "wires": [
+            [
+                "2f3e0928b89f06e1"
+            ]
+        ]
+    }
+]
