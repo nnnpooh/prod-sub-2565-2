@@ -1,0 +1,194 @@
+[
+    {
+        "id": "5b329120aeb9f39e",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3b89684b6b7c9a3e",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "97da61a44e1db860",
+        "type": "http request",
+        "z": "5b329120aeb9f39e",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://cmu.ac.th",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 270,
+        "y": 80,
+        "wires": [
+            [
+                "a26d16f7ac552649",
+                "0f6526434c25898f"
+            ]
+        ]
+    },
+    {
+        "id": "a26d16f7ac552649",
+        "type": "debug",
+        "z": "5b329120aeb9f39e",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2e1a0bfabaa2d8b1",
+        "type": "inject",
+        "z": "5b329120aeb9f39e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 80,
+        "wires": [
+            [
+                "97da61a44e1db860"
+            ]
+        ]
+    },
+    {
+        "id": "0f6526434c25898f",
+        "type": "file",
+        "z": "5b329120aeb9f39e",
+        "name": "",
+        "filename": "index.html",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 470,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46fe9a5b7bb6ae3c",
+        "type": "http in",
+        "z": "3b89684b6b7c9a3e",
+        "name": "",
+        "url": "hello",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 120,
+        "wires": [
+            [
+                "409927384b81e49f",
+                "a192f356fd637cdf"
+            ]
+        ]
+    },
+    {
+        "id": "bc568fb28c5ddffd",
+        "type": "http response",
+        "z": "3b89684b6b7c9a3e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8eb3503a8f71e969",
+        "type": "template",
+        "z": "3b89684b6b7c9a3e",
+        "d": true,
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Helllo, this is {{time}}.",
+        "output": "str",
+        "x": 500,
+        "y": 120,
+        "wires": [
+            [
+                "bc568fb28c5ddffd"
+            ]
+        ]
+    },
+    {
+        "id": "409927384b81e49f",
+        "type": "function",
+        "z": "3b89684b6b7c9a3e",
+        "d": true,
+        "name": "function 1",
+        "func": "const date = new Date();\nmsg.time = date.toLocaleTimeString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "8eb3503a8f71e969"
+            ]
+        ]
+    },
+    {
+        "id": "a192f356fd637cdf",
+        "type": "file in",
+        "z": "3b89684b6b7c9a3e",
+        "name": "",
+        "filename": "index.html",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "bc568fb28c5ddffd"
+            ]
+        ]
+    }
+]
