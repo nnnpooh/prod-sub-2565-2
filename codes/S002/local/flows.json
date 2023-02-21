@@ -16,6 +16,30 @@
         "env": []
     },
     {
+        "id": "88849aaee0f3ffb5",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1f4559148c2ef79c",
+        "type": "tab",
+        "label": "Attendance",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "38c6ecaa6bcc6e4f",
+        "type": "tab",
+        "label": "Line Notify",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "f2874cb629e84331",
         "type": "http request",
         "z": "d2417708ee0d44cc",
@@ -189,6 +213,248 @@
             [
                 "ab9b9848741da078"
             ]
+        ]
+    },
+    {
+        "id": "daa87213d4f5a37c",
+        "type": "http in",
+        "z": "88849aaee0f3ffb5",
+        "name": "",
+        "url": "post1",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "d17e66f9a5ba12e5",
+                "eef14546e99c98b3"
+            ]
+        ]
+    },
+    {
+        "id": "f5ff073e655f2936",
+        "type": "http response",
+        "z": "88849aaee0f3ffb5",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 590,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d17e66f9a5ba12e5",
+        "type": "template",
+        "z": "88849aaee0f3ffb5",
+        "d": true,
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "I got your message, {{payload}} !",
+        "output": "str",
+        "x": 400,
+        "y": 60,
+        "wires": [
+            [
+                "f5ff073e655f2936"
+            ]
+        ]
+    },
+    {
+        "id": "295c16771fecc185",
+        "type": "comment",
+        "z": "88849aaee0f3ffb5",
+        "name": "Server",
+        "info": "",
+        "x": 150,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "5c81d561fdc933b7",
+        "type": "comment",
+        "z": "88849aaee0f3ffb5",
+        "name": "Clinet",
+        "info": "",
+        "x": 150,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0c3462447ebe0871",
+        "type": "http request",
+        "z": "88849aaee0f3ffb5",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "e553514b94ca4fc8"
+            ]
+        ]
+    },
+    {
+        "id": "dcea0a2c0b375610",
+        "type": "inject",
+        "z": "88849aaee0f3ffb5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "url",
+                "v": "http://127.0.0.1:1880/post1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "I love you.",
+        "payloadType": "str",
+        "x": 140,
+        "y": 280,
+        "wires": [
+            [
+                "0c3462447ebe0871"
+            ]
+        ]
+    },
+    {
+        "id": "e553514b94ca4fc8",
+        "type": "debug",
+        "z": "88849aaee0f3ffb5",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "eef14546e99c98b3",
+        "type": "function",
+        "z": "88849aaee0f3ffb5",
+        "name": "function 2",
+        "func": "const message = msg.payload;\nconst date = new Date();\nconst time = date.toLocaleTimeString();\n\nmsg.payload = `I got your message \"${message}\" at ${time} !`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "f5ff073e655f2936"
+            ]
+        ]
+    },
+    {
+        "id": "a87d64b8af32ac5d",
+        "type": "inject",
+        "z": "1f4559148c2ef79c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6e8248f3c59ec2b4",
+        "type": "inject",
+        "z": "38c6ecaa6bcc6e4f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "headers",
+                "v": "{\"Content-Type\":\"application/x-www-form-urlencoded\",\"Authorization\":\"Bearer sHRNXNOOnWW2V8hd9Egi0iP3cFIzzIHpWIOnIJwujBP\"}",
+                "vt": "json"
+            },
+            {
+                "p": "url",
+                "v": "https://notify-api.line.me/api/notify",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"message\":\"ส่งโปรเจคยัง\"}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 180,
+        "wires": [
+            [
+                "b034777ef03b24c0"
+            ]
+        ]
+    },
+    {
+        "id": "b034777ef03b24c0",
+        "type": "http request",
+        "z": "38c6ecaa6bcc6e4f",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 470,
+        "y": 180,
+        "wires": [
+            []
         ]
     }
 ]

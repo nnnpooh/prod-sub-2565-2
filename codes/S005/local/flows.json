@@ -16,6 +16,30 @@
         "env": []
     },
     {
+        "id": "2acff690e156067f",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f890b90356fa61a4",
+        "type": "tab",
+        "label": "Attendance",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1fbe94a88648108c",
+        "type": "tab",
+        "label": "Flow 5",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "97da61a44e1db860",
         "type": "http request",
         "z": "5b329120aeb9f39e",
@@ -190,5 +214,325 @@
                 "bc568fb28c5ddffd"
             ]
         ]
+    },
+    {
+        "id": "99281763699ca5c1",
+        "type": "http in",
+        "z": "2acff690e156067f",
+        "name": "",
+        "url": "post1",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "5e8eeb5330d2157f",
+                "262a057dc0c0bcb4",
+                "d9167a71967f4830"
+            ]
+        ]
+    },
+    {
+        "id": "5e8eeb5330d2157f",
+        "type": "debug",
+        "z": "2acff690e156067f",
+        "d": true,
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "56bd45af0ac3502a",
+        "type": "http response",
+        "z": "2acff690e156067f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 650,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "262a057dc0c0bcb4",
+        "type": "template",
+        "z": "2acff690e156067f",
+        "d": true,
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "I got your message: {{payload}} !",
+        "output": "str",
+        "x": 440,
+        "y": 120,
+        "wires": [
+            [
+                "56bd45af0ac3502a"
+            ]
+        ]
+    },
+    {
+        "id": "023d144ea6014a4a",
+        "type": "comment",
+        "z": "2acff690e156067f",
+        "name": "Server",
+        "info": "",
+        "x": 210,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "f8193f4c54ea2dce",
+        "type": "comment",
+        "z": "2acff690e156067f",
+        "name": "Client",
+        "info": "",
+        "x": 210,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3a5660ea5764b526",
+        "type": "http request",
+        "z": "2acff690e156067f",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 410,
+        "y": 400,
+        "wires": [
+            [
+                "626cfa8a1e3f92eb"
+            ]
+        ]
+    },
+    {
+        "id": "9de18210cefb68d7",
+        "type": "inject",
+        "z": "2acff690e156067f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "url",
+                "v": "http://127.0.0.1:1880/post1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "I love you",
+        "payloadType": "str",
+        "x": 220,
+        "y": 400,
+        "wires": [
+            [
+                "3a5660ea5764b526"
+            ]
+        ]
+    },
+    {
+        "id": "626cfa8a1e3f92eb",
+        "type": "debug",
+        "z": "2acff690e156067f",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "d9167a71967f4830",
+        "type": "function",
+        "z": "2acff690e156067f",
+        "name": "function 2",
+        "func": "const message = msg.payload;\nconst date = new Date();\nconst time = date.toLocaleTimeString();\n\nmsg.payload = `I got your message \"${message}\" at ${time} !`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 40,
+        "wires": [
+            [
+                "56bd45af0ac3502a"
+            ]
+        ]
+    },
+    {
+        "id": "205872fe9ac989c5",
+        "type": "http request",
+        "z": "f890b90356fa61a4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "810c30d23d2463c7"
+            ]
+        ]
+    },
+    {
+        "id": "3e624c91d3948e85",
+        "type": "inject",
+        "z": "f890b90356fa61a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "url",
+                "v": "https://materials-line-oa-production.up.railway.app/prodsup",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"cmu_id\":\"111222333\",\"code\":\"xxxx\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "205872fe9ac989c5"
+            ]
+        ]
+    },
+    {
+        "id": "810c30d23d2463c7",
+        "type": "debug",
+        "z": "f890b90356fa61a4",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3fef0487bc3864e2",
+        "type": "inject",
+        "z": "1fbe94a88648108c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "headers",
+                "v": "{\"Content-Type\":\"application/x-www-form-urlencoded\",\"Authorization\":\"Bearer 5cl0SXe8KtBOviWeoNiDhXASg6WHTmCaK8GRm7gcCpX\"}",
+                "vt": "json"
+            },
+            {
+                "p": "url",
+                "v": "https://notify-api.line.me/api/notify",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"message\":\"ส่งรายงานยัง\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "1783fcf85c98e08f"
+            ]
+        ]
+    },
+    {
+        "id": "1783fcf85c98e08f",
+        "type": "http request",
+        "z": "1fbe94a88648108c",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 330,
+        "y": 100,
+        "wires": [
+            [
+                "58cd2b50c61f2e3c"
+            ]
+        ]
+    },
+    {
+        "id": "58cd2b50c61f2e3c",
+        "type": "debug",
+        "z": "1fbe94a88648108c",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 100,
+        "wires": []
     }
 ]
