@@ -40,6 +40,49 @@
         "env": []
     },
     {
+        "id": "d023329a7dc2c8bd",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "440117e1a35c6ee8",
+        "type": "tab",
+        "label": "Flow 6",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d516eaf74847e6bb",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "iecmu.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
         "id": "97da61a44e1db860",
         "type": "http request",
         "z": "5b329120aeb9f39e",
@@ -471,7 +514,7 @@
             },
             {
                 "p": "headers",
-                "v": "{\"Content-Type\":\"application/x-www-form-urlencoded\",\"Authorization\":\"Bearer zNICeqOPw66w6ljFdP32DBhYrJSE7VDIbpghLIq1k0w\"}",
+                "v": "{\"Content-Type\":\"application/x-www-form-urlencoded\",\"Authorization\":\"Bearer 5cl0SXe8KtBOviWeoNiDhXASg6WHTmCaK8GRm7gcCpX\"}",
                 "vt": "json"
             },
             {
@@ -485,7 +528,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"message\":\"Hello from node-red\"}",
+        "payload": "{\"message\":\"ส่งรายงานยัง\"}",
         "payloadType": "json",
         "x": 130,
         "y": 100,
@@ -534,5 +577,213 @@
         "x": 540,
         "y": 100,
         "wires": []
+    },
+    {
+        "id": "4b556e5523a6b787",
+        "type": "mqtt out",
+        "z": "d023329a7dc2c8bd",
+        "name": "",
+        "topic": "test/main",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d516eaf74847e6bb",
+        "x": 400,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "85bf2547a418e95f",
+        "type": "inject",
+        "z": "d023329a7dc2c8bd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello from node-red",
+        "payloadType": "str",
+        "x": 210,
+        "y": 260,
+        "wires": [
+            [
+                "4b556e5523a6b787"
+            ]
+        ]
+    },
+    {
+        "id": "d7861e8fe83c3641",
+        "type": "mqtt in",
+        "z": "d023329a7dc2c8bd",
+        "name": "",
+        "topic": "test/main",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d516eaf74847e6bb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 380,
+        "wires": [
+            [
+                "d90ecd5c0bc83bc2"
+            ]
+        ]
+    },
+    {
+        "id": "d90ecd5c0bc83bc2",
+        "type": "debug",
+        "z": "d023329a7dc2c8bd",
+        "d": true,
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "5da7e0f24edbb641",
+        "type": "mqtt in",
+        "z": "440117e1a35c6ee8",
+        "name": "",
+        "topic": "NR/sensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d516eaf74847e6bb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 60,
+        "y": 40,
+        "wires": [
+            [
+                "984707f1b42af8f2"
+            ]
+        ]
+    },
+    {
+        "id": "17e9f758a7b8c226",
+        "type": "debug",
+        "z": "440117e1a35c6ee8",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "984707f1b42af8f2",
+        "type": "switch",
+        "z": "440117e1a35c6ee8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "5",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "4ed2ce64ed616dfa"
+            ],
+            [
+                "33d522095448de47"
+            ]
+        ]
+    },
+    {
+        "id": "4ed2ce64ed616dfa",
+        "type": "change",
+        "z": "440117e1a35c6ee8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Something happens",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "17e9f758a7b8c226"
+            ]
+        ]
+    },
+    {
+        "id": "33d522095448de47",
+        "type": "change",
+        "z": "440117e1a35c6ee8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Everything is okay.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "17e9f758a7b8c226"
+            ]
+        ]
     }
 ]
