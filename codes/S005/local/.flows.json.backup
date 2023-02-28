@@ -56,6 +56,30 @@
         "env": []
     },
     {
+        "id": "e0bfe979e53f066b",
+        "type": "tab",
+        "label": "Flow 7",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c2ce797ff8d6a242",
+        "type": "tab",
+        "label": "Flow 8",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "095b6b82d1126c8a",
+        "type": "tab",
+        "label": "Flow 9",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "d516eaf74847e6bb",
         "type": "mqtt-broker",
         "name": "",
@@ -81,6 +105,134 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "c64b72e719aa041c",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "f4355dda01a89ae2",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "0e1689bab054488c",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "f4355dda01a89ae2",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "bbd1e3313e8bd9f3",
+        "type": "ui_tab",
+        "name": "Tab 2",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "eae91abd84217400",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "bbd1e3313e8bd9f3",
+        "order": 1,
+        "disp": true,
+        "width": 6
     },
     {
         "id": "97da61a44e1db860",
@@ -668,6 +820,7 @@
         "id": "5da7e0f24edbb641",
         "type": "mqtt in",
         "z": "440117e1a35c6ee8",
+        "d": true,
         "name": "",
         "topic": "NR/sensor",
         "qos": "2",
@@ -710,7 +863,7 @@
         "propertyType": "msg",
         "rules": [
             {
-                "t": "lt",
+                "t": "gte",
                 "v": "5",
                 "vt": "str"
             },
@@ -785,5 +938,294 @@
                 "17e9f758a7b8c226"
             ]
         ]
+    },
+    {
+        "id": "72160ff32aaed5f5",
+        "type": "mqtt in",
+        "z": "e0bfe979e53f066b",
+        "name": "",
+        "topic": "NR/sensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d516eaf74847e6bb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "652c3d94c9119a11"
+            ]
+        ]
+    },
+    {
+        "id": "4dee4157c9a1ad0f",
+        "type": "debug",
+        "z": "e0bfe979e53f066b",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "652c3d94c9119a11",
+        "type": "function",
+        "z": "e0bfe979e53f066b",
+        "name": "function 3",
+        "func": "const payloadJSON = msg.payload;\nconst values = payloadJSON['LSM6DSO Acceleration Sensor'].values;\nconst norm = Math.sqrt(values[0] ** 2 + values[1] ** 2 + values[2] ** 2);\nmsg.payload = norm;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 120,
+        "wires": [
+            [
+                "4dee4157c9a1ad0f",
+                "124a092a6094395a",
+                "a7bf34d0ed72c446",
+                "fe34d48d6474d47f"
+            ]
+        ]
+    },
+    {
+        "id": "124a092a6094395a",
+        "type": "ui_chart",
+        "z": "e0bfe979e53f066b",
+        "name": "",
+        "group": "0e1689bab054488c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "5",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 590,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a7bf34d0ed72c446",
+        "type": "ui_gauge",
+        "z": "e0bfe979e53f066b",
+        "name": "",
+        "group": "0e1689bab054488c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 590,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "fe34d48d6474d47f",
+        "type": "ui_text",
+        "z": "e0bfe979e53f066b",
+        "group": "0e1689bab054488c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 590,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1bb722199c2b4714",
+        "type": "inject",
+        "z": "c2ce797ff8d6a242",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hi from laptop",
+        "payloadType": "str",
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "14d06c29a1de34cc"
+            ]
+        ]
+    },
+    {
+        "id": "14d06c29a1de34cc",
+        "type": "mqtt out",
+        "z": "c2ce797ff8d6a242",
+        "name": "",
+        "topic": "NR/button",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d516eaf74847e6bb",
+        "x": 460,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "187c726d0c72c4ab",
+        "type": "ui_button",
+        "z": "c2ce797ff8d6a242",
+        "name": "",
+        "group": "eae91abd84217400",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "็Hi from laptop",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "14d06c29a1de34cc"
+            ]
+        ]
+    },
+    {
+        "id": "2e8ceb191e6d06a4",
+        "type": "inject",
+        "z": "095b6b82d1126c8a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 100,
+        "wires": [
+            [
+                "6f6aeaf3475cb28f"
+            ]
+        ]
+    },
+    {
+        "id": "6f6aeaf3475cb28f",
+        "type": "function",
+        "z": "095b6b82d1126c8a",
+        "name": "function 4",
+        "func": "msg.payload = Math.random();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 100,
+        "wires": [
+            [
+                "147834db0135a909"
+            ]
+        ]
+    },
+    {
+        "id": "147834db0135a909",
+        "type": "mqtt out",
+        "z": "095b6b82d1126c8a",
+        "name": "",
+        "topic": "nirand/fake",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d516eaf74847e6bb",
+        "x": 670,
+        "y": 100,
+        "wires": []
     }
 ]
